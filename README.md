@@ -18,3 +18,6 @@
 ### Related URLs
 
 - [Face-alignment-mobilenet-v2](https://github.com/WallZFE/Face-alignment-mobilenet-v2)
+- [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
+- [26M Flops Facial Landmark Detection](https://github.com/ainrichman/Peppa-Facial-Landmark-PyTorch)
+- [JAANet](https://github.com/ZhiwenShao/JAANet)
