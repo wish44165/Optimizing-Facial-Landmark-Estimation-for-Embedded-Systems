@@ -25,3 +25,4 @@
 - [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
 - [26M Flops Facial Landmark Detection](https://github.com/ainrichman/Peppa-Facial-Landmark-PyTorch)
 - [JAANet](https://github.com/ZhiwenShao/JAANet)
+- [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
