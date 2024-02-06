@@ -26,3 +26,4 @@
 - [26M Flops Facial Landmark Detection](https://github.com/ainrichman/Peppa-Facial-Landmark-PyTorch)
 - [JAANet](https://github.com/ZhiwenShao/JAANet)
 - [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
+- [yolov8-face-landmarks-opencv-dnn](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
