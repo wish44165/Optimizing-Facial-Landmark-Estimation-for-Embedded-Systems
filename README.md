@@ -27,3 +27,5 @@
 - [JAANet](https://github.com/ZhiwenShao/JAANet)
 - [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
 - [yolov8-face-landmarks-opencv-dnn](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
+- [High-resolution networks (HRNets) for facial landmark detection](https://github.com/HRNet/HRNet-Facial-Landmark-Detection)
+- [FacialLandmarkDetection](https://github.com/nicknochnack/FacialLandmarkDetection)
