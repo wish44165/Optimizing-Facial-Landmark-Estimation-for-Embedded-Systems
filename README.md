@@ -19,6 +19,20 @@
 ### Stage 2 dataset
 
 
+## Trials
+
+<details><summary>YOLOv8</summary>
+
+```
+$ conda create -n yolov8 python=3.10 -y
+$ conda activate yolov8
+$ git clone https://github.com/ultralytics/ultralytics.git
+$ cd ultralytics/
+$ pip install ultralytics
+```
+
+</details>
+
 ## Reference
 
 ### Papers With Code
