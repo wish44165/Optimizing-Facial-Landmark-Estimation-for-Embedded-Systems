@@ -36,7 +36,13 @@ ultralytics/
 <details><summary>Train</summary>
 
 ```
-$ python train_facial.py
+$ python train.py --model_name <model name> \
+                  --yaml_path <yaml path> \
+                  --n_epoch <training epochs> \
+                  --bs <batch size> \
+                  --imgsz <image size> \
+                  --n_worker <number of workers> \
+                  --save_path <save path>
 ```
 
 </details>
@@ -45,7 +51,8 @@ $ python train_facial.py
 <details><summary>Valid</summary>
 
 ```
-$ python valid_facial.py
+$ python valid.py --weight <trained model> \
+                  --save_path <save path>
 ```
 
 </details>
@@ -54,7 +61,7 @@ $ python valid_facial.py
 <details><summary>Predict</summary>
 
 ```
-$ python predict_facial.py
+$ python predict.py
 ```
 
 </details>
