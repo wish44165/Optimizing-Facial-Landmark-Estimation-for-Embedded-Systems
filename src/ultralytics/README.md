@@ -17,17 +17,19 @@ $ pip install ultralytics
 <details><summary>Folder Structure</summary>
 
 ```
-ultralytics/
-├── facial.yaml
-├── train_facial.py
-├── predict_facial.py
-└── data/
-    ├── images/
-        ├── train/
-        └── val/
-    └── labels/
-        ├── train/
-        └── val/
+src/
+├── preprocess/
+    └── data/
+        ├── images/
+            ├── train/
+            └── val/
+        └── labels/
+            ├── train/
+            └── val/
+└── ultralytics/
+    ├── facial.yaml
+    ├── train.py
+    └── valid.py
 ```
 
 </details>
@@ -53,15 +55,6 @@ $ python train.py --model_name <model name> \
 ```
 $ python valid.py --weight <trained model> \
                   --save_path <save path>
-```
-
-</details>
-
-
-<details><summary>Predict</summary>
-
-```
-$ python predict.py
 ```
 
 </details>
