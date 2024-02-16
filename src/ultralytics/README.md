@@ -42,7 +42,16 @@ $ python train_facial.py
 </details>
 
 
-<details><summary>Inference</summary>
+<details><summary>Valid</summary>
+
+```
+$ python valid_facial.py
+```
+
+</details>
+
+
+<details><summary>Predict</summary>
 
 ```
 $ python predict_facial.py
@@ -54,6 +63,7 @@ $ python predict_facial.py
 <details><summary>Reference</summary>
 
 - [Model Training with Ultralytics YOLO](https://docs.ultralytics.com/modes/train/)
+- [Pose Estimation](https://docs.ultralytics.com/tasks/pose/)
 - [Pose Estimation on Custom Data using Ultralytics YOLOv8](https://ultralytics.medium.com/pose-estimation-on-custom-data-using-ultralytics-yolov8-ef63e103daea)
 - [Train Yolov8 object detection on a custom dataset | Step by step guide | Computer vision tutorial](https://youtu.be/m9fH9OWn8YM?si=Npjpa4mdlA0vtYce)
 - [Yolov8 with key points detection without object detection](https://github.com/ultralytics/ultralytics/issues/2929)
