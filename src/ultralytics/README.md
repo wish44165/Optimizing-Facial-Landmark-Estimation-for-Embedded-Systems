@@ -56,5 +56,7 @@ $ python predict_facial.py
 - [Model Training with Ultralytics YOLO](https://docs.ultralytics.com/modes/train/)
 - [Pose Estimation on Custom Data using Ultralytics YOLOv8](https://ultralytics.medium.com/pose-estimation-on-custom-data-using-ultralytics-yolov8-ef63e103daea)
 - [Train Yolov8 object detection on a custom dataset | Step by step guide | Computer vision tutorial](https://youtu.be/m9fH9OWn8YM?si=Npjpa4mdlA0vtYce)
+- [Yolov8 with key points detection without object detection](https://github.com/ultralytics/ultralytics/issues/2929)
+- [Yolov8 with key points detection without object detection](https://ai.stackexchange.com/questions/40664/yolov8-with-key-points-detection-without-object-detection)
 
 </details>
