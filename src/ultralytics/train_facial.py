@@ -9,4 +9,4 @@ model = YOLO('yolov8n-pose.pt')  # load a pretrained model (recommended for trai
 
 if __name__ == '__main__':
     # Train the model
-    model.train(data='./facial.yaml', epochs=10, batch=8, imgsz=640, device=0, workers=8, project='./runs/facial')
+    model.train(data='./facial.yaml', epochs=100, batch=8, imgsz=640, device=0, workers=8, project='./runs/facial')

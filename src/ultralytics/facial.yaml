@@ -1,4 +1,4 @@
-path: '/home/wish/UoM/0thers/IEEE_ICME_2024_Grand_Challenges/src/ultralytics/data/'
+path: '/home/wish/UoM/0thers/IEEE_ICME_2024_Grand_Challenges/src/preprocess/data/'
 train: 'images/train/'
 val: 'images/val/'
 #test: 'images/test/'

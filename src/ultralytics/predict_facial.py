@@ -4,4 +4,4 @@ from ultralytics import YOLO
 model = YOLO('./runs/facial/train/weights/best.pt')  # load a custom model
 
 # Predict with the model
-results = model('../../ivslab_facial_train/ibug/images/', save=True, project="./runs/facial")
+results = model('./data/images/val/', save=True, project="./runs/facial")
