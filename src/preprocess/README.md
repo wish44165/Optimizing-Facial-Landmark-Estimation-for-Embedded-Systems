@@ -25,7 +25,14 @@ preprocess/
 <details><summary>Steps</summary>
 
 0. visualCheck.py
+
+### v1
+
 1. splitdata.py
 2. pts2yolo.py (whole image as bounding box)
+
+### v2
+
+1. splitdata_yolo.py
 
 </details>
