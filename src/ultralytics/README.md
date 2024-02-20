@@ -29,7 +29,8 @@ src/
 └── ultralytics/
     ├── facial.yaml
     ├── train.py
-    └── valid.py
+    ├── valid.py
+    └── predict.py
 ```
 
 </details>
@@ -64,7 +65,8 @@ $ python valid.py --weight <trained model> \
 
 ```
 $ python predict.py --weight <trained model> \
-                  --save_path <save path>
+                    --save_path <save path> \
+                    --predict_folder <predict folder>
 ```
 
 </details>
