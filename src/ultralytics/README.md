@@ -60,6 +60,16 @@ $ python valid.py --weight <trained model> \
 </details>
 
 
+<details><summary>Predict</summary>
+
+```
+$ python predict.py --weight <trained model> \
+                  --save_path <save path>
+```
+
+</details>
+
+
 <details><summary>Reference</summary>
 
 - [Model Training with Ultralytics YOLO](https://docs.ultralytics.com/modes/train/)
