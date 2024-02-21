@@ -98,3 +98,8 @@ preprocess/
 2. splitdata_v2.py
 
 </details>
+
+
+### train / val
+- data: 3549 / 888
+- data_filtered: 3249 / 813
