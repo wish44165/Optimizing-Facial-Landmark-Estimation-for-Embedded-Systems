@@ -27,7 +27,7 @@ ivslab_facial_train/
 </details>
 
 
-<details><summary>Original Data Folder Structure</summary>
+<details><summary>Filtered Data Folder Structure</summary>
 
 ```
 ivslab_facial_train_filtered/
