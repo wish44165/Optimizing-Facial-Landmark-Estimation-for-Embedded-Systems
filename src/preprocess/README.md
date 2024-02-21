@@ -26,6 +26,30 @@ ivslab_facial_train/
 
 </details>
 
+
+<details><summary>Original Data Folder Structure</summary>
+
+```
+ivslab_facial_train_filtered/
+├── 300W/
+│   ├── images/
+│   └── labels/
+├── afw/
+│   ├── images/
+│   └── labels/
+├── helen/
+│   ├── images/
+│   └── labels/
+├── ibug/
+│   ├── images/
+│   └── labels/
+└── IFPW/
+    ├── images/
+    └── labels/
+```
+
+</details>
+
 ---
 
 <details><summary>Install Packages</summary>
