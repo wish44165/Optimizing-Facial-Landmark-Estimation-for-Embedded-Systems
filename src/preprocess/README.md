@@ -32,17 +32,17 @@ ivslab_facial_train/
 ```
 ivslab_facial_train_filtered/
 ├── 300W/
-│   ├── images/
-│   └── labels/
+    ├── images/
+    └── labels/
 ├── afw/
-│   ├── images/
-│   └── labels/
+    ├── images/
+    └── labels/
 ├── helen/
-│   ├── images/
-│   └── labels/
+    ├── images/
+    └── labels/
 ├── ibug/
-│   ├── images/
-│   └── labels/
+    ├── images/
+    └── labels/
 └── IFPW/
     ├── images/
     └── labels/
@@ -78,6 +78,9 @@ preprocess/
 
 0. visualCheck.py
 
+- data: 3549 / 888 (v1-v3)
+- data_filtered: 3249 / 813 (v4)
+
 ### v1
 
 1. splitdata.py
@@ -100,6 +103,4 @@ preprocess/
 </details>
 
 
-### train / val
-- data: 3549 / 888
-- data_filtered: 3249 / 813
+
