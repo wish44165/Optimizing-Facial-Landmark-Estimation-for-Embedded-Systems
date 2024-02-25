@@ -40,6 +40,7 @@
 
 ### GitHub Repository
 
+- [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling)
 - [Face-alignment-mobilenet-v2](https://github.com/WallZFE/Face-alignment-mobilenet-v2)
 - [26M Flops Facial Landmark Detection](https://github.com/ainrichman/Peppa-Facial-Landmark-PyTorch)
 - [yolov8-face-landmarks-opencv-dnn](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
