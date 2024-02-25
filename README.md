@@ -19,6 +19,17 @@
 ### Stage 2 dataset
 
 
+## Progress
+
+- [] Data augmentation
+- [] Iterative auto label
+- [x] Filter and split dataset (22/2/2024)
+- [x] Semi label (19/2/2024)
+- [x] Auto label approx. bbox (17/2/2024) 
+- [x] YOLOv8-pose Setup (16/2/2024)
+- [x] Split dataset (14/2/2024)
+
+
 ## Reference
 
 ### Papers With Code
