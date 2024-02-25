@@ -21,8 +21,8 @@
 
 ## Progress
 
-- [] Data augmentation
-- [] Iterative auto label
+- [ ] Data augmentation
+- [ ] Iterative auto label
 - [x] Filter and split dataset (22/2/2024)
 - [x] Semi label (19/2/2024)
 - [x] Auto label approx. bbox (17/2/2024) 
