@@ -67,8 +67,13 @@ $ pip install scikit-learn
 ```
 preprocess/
 ├── visualCheck.py
+├── visualCheck_filtered.py
 ├── splitdata.py
-└── pts2yolo.py
+├── splitdata_v2.py
+├── splitdata_yolo.py
+├── duplicateCheck.py
+├── pts2yolo.py
+└── pts2yolo_v2.py
 ```
 
 </details>
