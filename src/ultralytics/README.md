@@ -49,7 +49,7 @@ $ python train.py --model_name <model name> \
                   --save_path <save path>
 
 # e.g.
-$ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 16 --imgsz 640 --n_worker $(nproc) --save_path ./run/facial
+$ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 8 --imgsz 640 --n_worker $(nproc) --save_path ./run/facial
 ```
 
 </details>
