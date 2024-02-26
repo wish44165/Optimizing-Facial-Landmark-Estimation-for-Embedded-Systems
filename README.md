@@ -23,11 +23,12 @@
 
 - [ ] Data augmentation
 - [ ] Iterative auto label
-- [x] Filter and split dataset (22/2/2024)
-- [x] Semi label (19/2/2024)
-- [x] Auto label approx. bbox (17/2/2024) 
-- [x] YOLOv8-pose Setup (16/2/2024)
-- [x] Split dataset (14/2/2024)
+- [x] 22/2/2024 - Filter and split dataset (duplicateCheck.py, splitdata_v2.py)
+- [x] 19/2/2024 - Split semi label (splitdata_yolo.py)
+- [x] 17/2/2024 - Auto label approx. bbox (pts2yolo_v2.py) 
+- [x] 16/2/2024 - YOLOv8-pose Setup (ultralytics/)
+- [x] 15/2/2024 - Auto label with whole image (pts2yolo.py)
+- [x] 14/2/2024 - Split dataset (splitdata.py)
 
 
 ## Reference
