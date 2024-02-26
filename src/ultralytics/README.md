@@ -94,9 +94,14 @@ $ python predict.py --weight <trained model> \
 
 
 
-
-
+<details><summary>Iterative steps</summary>
 
 1. use the trained model predict on data containing train/val
 2. convert the predicted labels into the same form as original [cls, rcx, rcy, rw, rh, rx, ry, visible, rx, ry, visible, ...]
+
+</details>
+
+
+
+
 
