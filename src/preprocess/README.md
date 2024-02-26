@@ -105,6 +105,9 @@ preprocess/
 1. duplicateCheck.py
 2. splitdata_v2.py
 
+train conf: 0.5
+nms: 0.3
+
 </details>
 
 
