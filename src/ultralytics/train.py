@@ -2,8 +2,9 @@ import os
 import argparse
 from ultralytics import YOLO
 
-os.environ["OMP_NUM_THREADS"]='8'
-os.environ["KMP_DUPLICATE_LIB_OK"]='TRUE'
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+#os.environ["OMP_NUM_THREADS"]='8'
+#os.environ["KMP_DUPLICATE_LIB_OK"]='TRUE'
 
 def parse_opt(known=False):
     parser = argparse.ArgumentParser()
@@ -11,7 +12,8 @@ def parse_opt(known=False):
                                                            "yolov8l-pose.pt", "yolov8x-pose.pt", "yolov8x-pose-p6.pt"], 
                                                            default='yolov8n-pose.pt', help='model name')
     parser.add_argument('--yaml_path', type=str, default='./facial.yaml', help='The yaml path')
-    parser.add_argument('--n_epoch', type=int, default=100, help='Epochs')
+    parser.add_argument('--n_epoch', type=int, default=300, help='Total number of training epochs.')
+    parser.add_argument('--n_patience', type=int, default=100, help='Number of epochs to wait without improvement in validation metrics before early stopping the training.')
     parser.add_argument('--bs', type=int, default=16, help='Batch size')
     parser.add_argument('--imgsz', type=int, default=640, help='Image size')
     parser.add_argument('--n_worker', type=int, default=8, help='Number of workers')
@@ -25,4 +27,4 @@ model = YOLO(opt.model_name)  # load a pretrained model (recommended for trainin
 
 if __name__ == '__main__':
     # Train the model
-    model.train(data=opt.yaml_path, epochs=opt.n_epoch, batch=opt.bs, imgsz=opt.imgsz, device=0, workers=opt.n_worker, project=opt.save_path)
+    model.train(data=opt.yaml_path, epochs=opt.n_epoch, patience=opt.n_patience, batch=opt.bs, imgsz=opt.imgsz, device=0, workers=opt.n_worker, project=opt.save_path)
