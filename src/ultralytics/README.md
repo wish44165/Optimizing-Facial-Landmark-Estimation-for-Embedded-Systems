@@ -42,10 +42,14 @@ src/
 $ python train.py --model_name <model name> \
                   --yaml_path <yaml path> \
                   --n_epoch <training epochs> \
+                  --n_patience <early stop> \
                   --bs <batch size> \
                   --imgsz <image size> \
                   --n_worker <number of workers> \
                   --save_path <save path>
+
+# e.g.
+$ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 16 --imgsz 640 --n_worker $(nproc) --save_path ./run/facial
 ```
 
 </details>
