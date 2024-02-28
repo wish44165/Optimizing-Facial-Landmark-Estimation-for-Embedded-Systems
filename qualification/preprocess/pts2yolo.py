@@ -26,7 +26,7 @@ def read_pts_file(file_path, width, height):
 
     return points
 
-datafolderPath = '/home/wish/UoM/0thers/IEEE_ICME_2024_Grand_Challenges/src/preprocess/data/'
+datafolderPath = '../../datasets/data_v1/'
 
 datasets = ['train', 'val']
 
