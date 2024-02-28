@@ -2,7 +2,7 @@ import os
 from sklearn.model_selection import train_test_split
 import shutil
 
-datafolderPath = '/home/wish/UoM/0thers/IEEE_ICME_2024_Grand_Challenges/ivslab_facial_train/'
+datafolderPath = '../../datasets/ivslab_facial_train/'
 datafolderList = os.listdir(datafolderPath)
 datafolderList = sorted(datafolderList)
 
@@ -15,9 +15,9 @@ for foldern in datafolderList:
     # Define paths to your data folders
     images_folder = folderp + 'images/'
     #labels_folder = folderp + 'labels/'
-    labels_folder = '/home/wish/UoM/0thers/IEEE_ICME_2024_Grand_Challenges/yolo_labels/' + foldern + '_labels/'
+    labels_folder = '../../datasets/yolo_labels/' + foldern + '_labels/'
 
-    output_folder = './data_v2/'
+    output_folder = '../../datasets/data_v2/'
     output_images_folder = output_folder + 'images/'
     output_labels_folder = output_folder + 'labels/'
 
