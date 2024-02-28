@@ -22,7 +22,7 @@
 ## Progress
 
 - [ ] Data augmentation
-- [ ] Iterative auto label
+- [x] 27/2/2024 - Iterative auto label
 - [x] 22/2/2024 - Filter and split dataset (duplicateCheck.py, splitdata_v2.py)
 - [x] 19/2/2024 - Split semi label (splitdata_yolo.py)
 - [x] 17/2/2024 - Auto label approx. bbox (pts2yolo_v2.py) 
