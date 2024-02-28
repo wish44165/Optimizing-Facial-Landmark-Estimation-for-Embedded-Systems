@@ -2,7 +2,21 @@
 
 2024 IEEE International Conference on Multimedia and Expo
 
+- [Low-power Efficient and Accurate Facial-Landmark Detection for Embedded Systems](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)
+- https://2024.ieeeicme.org/grand-challenge-proposals/
 
+## Progress
+
+- [ ] Data augmentation
+- [x] 27/2/2024 - Iterative auto label (iAutolabeling/)
+- [x] 22/2/2024 - Filter and split dataset (duplicateCheck.py, splitdata_v2.py)
+- [x] 19/2/2024 - Split semi label (splitdata_yolo.py)
+- [x] 17/2/2024 - Auto label approx. bbox (pts2yolo_v2.py) 
+- [x] 16/2/2024 - YOLOv8-pose Setup (ultralytics/)
+- [x] 15/2/2024 - Auto label with whole image (pts2yolo.py)
+- [x] 14/2/2024 - Split dataset (splitdata.py)
+
+---
 
 
 ## 1. Environmental Setup
@@ -11,8 +25,9 @@
 
 <summary>Hardware Information</summary>
 
-- CPU: 
-- GPU: GeForce RTX 3060 Ti (8G)
+- CPU: AMD Ryzen 5 5600X 6-Core @ 12x 3.7GHz
+- GPU: NVIDIA GeForce RTX 3060 Ti (8G)
+- RAM: 48087MiB
   
 </details>
 
@@ -34,14 +49,10 @@ $ pip install scikit-learn
 
 
 
-
-## Competition Links
-
-- [Low-power Efficient and Accurate Facial-Landmark Detection for Embedded Systems](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)
-- https://2024.ieeeicme.org/grand-challenge-proposals/
+## 2. Reproducing Details
 
 
-## Datasets
+<details><summary>Datasets Download Links</summary>
 
 ### Stage 1 dataset
 
@@ -50,17 +61,7 @@ $ pip install scikit-learn
 
 ### Stage 2 dataset
 
-
-## Progress
-
-- [ ] Data augmentation
-- [x] 27/2/2024 - Iterative auto label
-- [x] 22/2/2024 - Filter and split dataset (duplicateCheck.py, splitdata_v2.py)
-- [x] 19/2/2024 - Split semi label (splitdata_yolo.py)
-- [x] 17/2/2024 - Auto label approx. bbox (pts2yolo_v2.py) 
-- [x] 16/2/2024 - YOLOv8-pose Setup (ultralytics/)
-- [x] 15/2/2024 - Auto label with whole image (pts2yolo.py)
-- [x] 14/2/2024 - Split dataset (splitdata.py)
+</details>
 
 
 <summary>Folder Structure on Local Machine</summary>
@@ -70,35 +71,67 @@ $ pip install scikit-learn
     ```bash
     # Qualification Competition
     qualification/
-    ├── yolov7/
-        ├── requirements.txt
-        ├── submit.py
-        └── test.py
-    └── preprocess/
-        ├── xml2txt.py
-        ├── folderStructure.py
-        ├── resplit.py
-        ├── fisheye
-        ├── data_aug.py
-        ├── data_aug_2.py
-        └── statistics.py
+    ├── preprocess/
+        ├── visualCheck.py
+        ├── splitdata.py
+        ├── splitdata_v2.py
+        ├── splitdata_yolo.py
+        ├── pts2yolo.py
+        ├── pts2yolo_v2.py
+        └── duplicateCheck.py
+    └── ultralytics/
+        ├── facial.yaml
+        ├── train.py
+        ├── valid.py
+        └── predict.py
 
     # Final Competition
-    mx/
-    ├── requirements.txt
-    ├── calculate.py
-    ├── cal_model_size.py
-    ├── cal_model_complexity.py
-    ├── run_detection_pt.py
-    ├── run_detection_onnx.py
-    ├── best.csv
-    └── best.txt
+    #mx/
+    #├── requirements.txt
+    #├── calculate.py
+    #├── cal_model_size.py
+    #├── cal_model_complexity.py
+    #├── run_detection_pt.py
+    #├── run_detection_onnx.py
+    #├── best.csv
+    #└── best.txt
     ```
 
 </details>
 
 
-## Reference
+<details><summary>Qualification Competition</summary>
+
+
+
+</details>
+
+
+<details><summary>Final Competition</summary>
+
+
+
+</details>
+
+
+
+
+## 3. Demonstration
+
+
+
+
+## 4. Leaderboard Scores
+
+
+
+
+## 5. GitHub Acknowledgement
+
+
+
+
+## 6. References
 
 ### Papers With Code
 
@@ -115,3 +148,8 @@ $ pip install scikit-learn
 - [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
 - [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
 - [FacialLandmarkDetection](https://github.com/nicknochnack/FacialLandmarkDetection)
+
+
+
+
+## Citation
