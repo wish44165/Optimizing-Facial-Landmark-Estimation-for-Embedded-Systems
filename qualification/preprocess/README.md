@@ -45,16 +45,15 @@ $ python pts2yolo_v2.py
 ### version 3
 
 ```bash
-$ python splitdata.py
+$ python splitdata_yolo.py
 ```
 
-- output: ../../datasets/data_v1/ (.pts)
+- output: ../../datasets/data_v2/ (.txt)
 
-```bash
-$ python pts2yolo_v2.py 
-```
 
-- output: ../../datasets/data_v1/labels/ (.txt)
+### version 4
+
+
 
 </details>
 
