@@ -28,7 +28,7 @@ def read_pts_file(filename):
     return points
 
 
-folderPath = '../../ivslab_facial_train/ibug/'
+folderPath = '../../datasets/ivslab_facial_train/ibug/'
 imagePath = folderPath + 'images/'
 labelPath = folderPath + 'labels/'
 imageList = os.listdir(imagePath)
@@ -63,6 +63,3 @@ for fn in imageList:
     # Wait for a key press and then close the window
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-
-
-        
