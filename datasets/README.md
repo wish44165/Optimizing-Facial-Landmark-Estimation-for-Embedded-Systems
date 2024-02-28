@@ -6,6 +6,7 @@
 ```bash
 $ mkdir ivslab_facial_train/
 $ unzip ivslab_facial_train.zip -d ivslab_facial_train/
+$ unzip yolo_labels.zip
 ```
 
 </details>
@@ -16,7 +17,7 @@ $ unzip ivslab_facial_train.zip -d ivslab_facial_train/
 ```bash
 datasets/
     ├── ivslab_facial_train.zip
-    └── ivslab_facial_train/
+    ├── ivslab_facial_train/
         ├── 300W/
             ├── images/ (.png / .jpg)
             └── labels/ (.pts)
@@ -24,6 +25,14 @@ datasets/
         ├── helen/
         ├── ibug/
         └── IFPW/
+    ├── yolo_labels.zip
+    └── yolo_labels/
+        ├── 300W_labels/
+            └── .txt
+        ├── afw_labels/
+        ├── helen_labels/
+        ├── ibug_labels/
+        └── IFPW_labels/
 ```
 
 </details>
