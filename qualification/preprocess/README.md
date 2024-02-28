@@ -64,7 +64,7 @@ $ python pts2yolo_v2.py
 - output: `../../datasets/data_v1/labels/` (.txt)
 
 
-### version 3
+### version 3 (semi labeling)
 
 ```bash
 $ python splitdata_yolo.py
@@ -89,7 +89,6 @@ $ python splitdata_v2.py
 
 </details>
 
----
 
 <details><summary>Semi labeling for yolo_labels</summary>
   
