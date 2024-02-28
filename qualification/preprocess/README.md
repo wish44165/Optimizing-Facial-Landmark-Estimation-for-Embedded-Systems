@@ -1,10 +1,38 @@
 ## preprocess
 
 
-<details><summary>1. visualize the datasets for `ibug/` folder</summary>
+<details><summary>1. Visualization</summary>
 
 ```bash
 $ python visualCheck.py
+```
+
+</details>
+
+
+<details><summary>2. Create Datasets</summary>
+
+### v1 
+
+- whole image as bounding box
+
+```bash
+$ python splitdata.py
+```
+
+- output: ../../datasets/data_v1/ (.pts)
+
+```bash
+$ python pts2yolo.py 
+```
+
+- output: ../../datasets/data_v1/labels/ (.txt)
+
+
+### v2
+
+```bash
+
 ```
 
 </details>
