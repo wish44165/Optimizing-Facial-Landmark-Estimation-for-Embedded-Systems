@@ -53,6 +53,13 @@ $ python splitdata_yolo.py
 
 ### version 4
 
+```bash
+$ python duplicateCheck.py
+```
+
+- output: ../../datasets/ivslab_facial_train_filtered/
+- output: ../../datasets/ivslab_facial_train_filtered_details/
+
 
 
 </details>
