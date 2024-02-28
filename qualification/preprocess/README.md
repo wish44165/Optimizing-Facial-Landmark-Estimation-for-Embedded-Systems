@@ -90,7 +90,37 @@ $ python splitdata_v2.py
 ---
 
 <details><summary>Semi labeling for yolo_labels</summary>
+  
+- Train a baseline model
 
+```bash
+$ cd ../ultralytics
+$ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 8 --imgsz 640 --n_worker $(nproc) --save_path ./run/facial
+```
+
+- Predict the training dataset.
+
+```bash
+$ python predict.py --weight ./runs/facial/train/weights/best.pt \
+                    --save_path ./runs/facial \
+                    --predict_folder ../../datasets/v0/images/train
+```
+
+- Labeling the training set semi-automatically
+
+```bash
+$ cd ../preprocess
+$ python semi_labeling.py
+```
+
+### Fine-tuning labels through X-AnyLabeling
+
+- Convert the files to JSON format
+```bash
+$ python txt2json.py
+```
+
+- Open with X-AnyLabeling
 
 
 </details>
