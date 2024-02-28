@@ -71,7 +71,7 @@ $ python splitdata_yolo.py
 - output: `../../datasets/data_v2/` (.txt)
 
 
-### version 4
+### version 4 (based on version 3 ../../datasets/yolo_labels)
 
 ```bash
 $ python duplicateCheck.py
@@ -84,57 +84,5 @@ $ python splitdata_v2.py
 ```
 
 - output: `../../datasets/v0/` (.txt)
-
-</details>
-
-
-
-
-<details><summary>Original Data Folder Structure</summary>
-
-```
-ivslab_facial_train/
-├── 300W/
-    ├── images/
-        └── .png
-    └── labels/
-        └── .pts
-├── afw/
-    ├── images/
-    └── labels/
-├── helen/
-    ├── images/
-    └── labels/
-├── ibug/
-    ├── images/
-    └── labels/
-└── IFPW/
-    ├── images/
-    └── labels/
-```
-
-</details>
-
-
-<details><summary>Filtered Data Folder Structure</summary>
-
-```
-ivslab_facial_train_filtered/
-├── 300W/
-    ├── images/
-    └── labels/
-├── afw/
-    ├── images/
-    └── labels/
-├── helen/
-    ├── images/
-    └── labels/
-├── ibug/
-    ├── images/
-    └── labels/
-└── IFPW/
-    ├── images/
-    └── labels/
-```
 
 </details>
