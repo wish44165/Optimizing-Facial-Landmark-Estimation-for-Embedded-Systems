@@ -80,7 +80,7 @@ def save_labels(labels, output_file):
 def main():
     # Folder paths
     original_labels_folder = '../../datasets/v0/labels/train'
-    additional_labels_folder = r'D:\ultralytics\runs\facial\predict\labels'
+    additional_labels_folder = '../ultralytics/runs/facial/predict/labels'
     output_folder = '../../datasets/v0/semi_labels/train'
 
     # Merge labels
