@@ -89,7 +89,7 @@ $ python splitdata_v2.py
 
 ---
 
-<details><summary>Semi labeling</summary>
+<details><summary>Semi labeling for yolo_labels</summary>
 
 
 
