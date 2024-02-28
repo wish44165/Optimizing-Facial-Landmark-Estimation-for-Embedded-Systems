@@ -64,7 +64,7 @@ $ pip install scikit-learn
 </details>
 
 
-<summary>Folder Structure on Local Machine</summary>
+<details><summary>Folder Structure on Local Machine</summary>
 
 - Create the following folder structure on the local machine
 
