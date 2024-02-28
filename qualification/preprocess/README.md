@@ -1,6 +1,17 @@
 ## preprocess
 
 
+<details><summary>1. visualize the datasets for `ibug/` folder</summary>
+
+```bash
+$ python visualCheck.py
+```
+
+</details>
+
+
+
+
 <details><summary>Original Data Folder Structure</summary>
 
 ```
