@@ -12,9 +12,7 @@ $ python visualCheck.py
 
 <details><summary>2. Create Datasets</summary>
 
-### v1 
-
-- whole image as bounding box
+### version 1 (whole image as bounding box)
 
 ```bash
 $ python splitdata.py
@@ -29,11 +27,34 @@ $ python pts2yolo.py
 - output: ../../datasets/data_v1/labels/ (.txt)
 
 
-### v2
+### version 2 (approximate bounding box with +- 20 pixels)
 
 ```bash
-
+$ python splitdata.py
 ```
+
+- output: ../../datasets/data_v1/ (.pts)
+
+```bash
+$ python pts2yolo_v2.py 
+```
+
+- output: ../../datasets/data_v1/labels/ (.txt)
+
+
+### version 3
+
+```bash
+$ python splitdata.py
+```
+
+- output: ../../datasets/data_v1/ (.pts)
+
+```bash
+$ python pts2yolo_v2.py 
+```
+
+- output: ../../datasets/data_v1/labels/ (.txt)
 
 </details>
 
