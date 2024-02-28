@@ -1,6 +1,16 @@
 ## datasets
 
 
+<details><summary>Commands</summary>
+
+```bash
+$ mkdir ivslab_facial_train/
+$ unzip ivslab_facial_train.zip -d ivslab_facial_train/
+```
+
+</details>
+
+
 <details><summary>Folder Structure</summary>
 
 ```bash
@@ -14,16 +24,6 @@ datasets/
         ├── helen/
         ├── ibug/
         └── IFPW/
-```
-
-</details>
-
-
-<details><summary>Commands</summary>
-
-```bash
-$ mkdiar ivslab_facial_train/
-$ unzip ivslab_facial_train.zip -d ivslab_facial_train/
 ```
 
 </details>
