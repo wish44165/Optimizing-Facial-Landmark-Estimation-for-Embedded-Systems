@@ -86,3 +86,11 @@ $ python splitdata_v2.py
 - output: `../../datasets/v0/` (.txt)
 
 </details>
+
+---
+
+<details><summary>Semi labeling</summary>
+
+
+
+</details>
