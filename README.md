@@ -3,6 +3,38 @@
 2024 IEEE International Conference on Multimedia and Expo
 
 
+
+
+## 1. Environmental Setup
+
+<details>
+
+<summary>Hardware Information</summary>
+
+- CPU: 
+- GPU: GeForce RTX 3060 Ti (8G)
+  
+</details>
+
+
+<details><summary>Create Conda Environment</summary>
+
+```
+$ conda create -n yolov8 python=3.10 -y
+$ conda activate yolov8
+$ git clone https://github.com/ultralytics/ultralytics.git
+$ cd ultralytics/
+$ pip install ultralytics
+$ pip install pyarrow
+$ pip install scikit-learn
+```
+
+</details>
+
+
+
+
+
 ## Competition Links
 
 - [Low-power Efficient and Accurate Facial-Landmark Detection for Embedded Systems](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)
@@ -29,6 +61,41 @@
 - [x] 16/2/2024 - YOLOv8-pose Setup (ultralytics/)
 - [x] 15/2/2024 - Auto label with whole image (pts2yolo.py)
 - [x] 14/2/2024 - Split dataset (splitdata.py)
+
+
+<summary>Folder Structure on Local Machine</summary>
+
+- Create the following folder structure on the local machine
+
+    ```bash
+    # Qualification Competition
+    qualification/
+    ├── yolov7/
+        ├── requirements.txt
+        ├── submit.py
+        └── test.py
+    └── preprocess/
+        ├── xml2txt.py
+        ├── folderStructure.py
+        ├── resplit.py
+        ├── fisheye
+        ├── data_aug.py
+        ├── data_aug_2.py
+        └── statistics.py
+
+    # Final Competition
+    mx/
+    ├── requirements.txt
+    ├── calculate.py
+    ├── cal_model_size.py
+    ├── cal_model_complexity.py
+    ├── run_detection_pt.py
+    ├── run_detection_onnx.py
+    ├── best.csv
+    └── best.txt
+    ```
+
+</details>
 
 
 ## Reference
