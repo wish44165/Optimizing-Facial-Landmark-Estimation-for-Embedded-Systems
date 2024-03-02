@@ -102,7 +102,11 @@ $ pip install scikit-learn
 
 <details><summary>Qualification Competition</summary>
 
-
+```bash
+# iAutolabeling_conf_0.2
+$ for i in `seq 0 3`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
+$ for i in `seq 4 19`; do python main.py --curr_iter ${i} --bs 32 | tee iterLog${i}.txt; done
+```
 
 </details>
 
