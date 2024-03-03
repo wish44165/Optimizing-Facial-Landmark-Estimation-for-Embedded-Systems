@@ -110,6 +110,10 @@ $ for i in `seq 4 19`; do python main.py --curr_iter ${i} --bs 32 | tee iterLog$
 # iAutolabeling_conf_0.3
 $ for i in `seq 0 4`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
 $ for i in `seq 5 19`; do python main.py --curr_iter ${i} --bs 32 | tee iterLog${i}.txt; done
+
+# iAutolabeling_conf_0.5
+$ for i in `seq 0 9`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
+$ for i in `seq 10 19`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
 ```
 
 </details>
