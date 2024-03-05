@@ -61,6 +61,14 @@ $ pip install scikit-learn
 
 ### Stage 2 dataset
 
+- [ivslab_facial_test_private_qualification.zip.001](https://aidea-web.tw/file/b048c9a3-c3bc-4650-9674-f14f4c850f12-1706842899_train_test_dataset_2___ivslab_facial_test_private_qualification.zip.001)
+- [ivslab_facial_test_private_qualification.zip.002](https://aidea-web.tw/file/b048c9a3-c3bc-4650-9674-f14f4c850f12-1706842899_train_test_dataset_2___ivslab_facial_test_private_qualification.zip.002)
+
+```bash
+$ cat ivslab_facial_test_private_qualification.zip.001 ivslab_facial_test_private_qualification.zip.002 > ivslab_facial_test_private_qualification.zip
+$ unzip ivslab_facial_test_private_qualification.zip
+```
+
 </details>
 
 
