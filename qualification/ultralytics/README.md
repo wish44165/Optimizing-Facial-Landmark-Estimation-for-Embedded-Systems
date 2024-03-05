@@ -45,14 +45,15 @@ $ python train.py --model_name <model name> \
                   --n_patience <early stop> \
                   --bs <batch size> \
                   --imgsz <image size> \
+                  --pose <pose weight> \
                   --n_worker <number of workers> \
                   --save_path <save path>
 
 # e.g.
-$ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 8 --imgsz 640 --n_worker $(nproc) --save_path ./run/facial
+$ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 8 --imgsz 640 --n_worker $(nproc) --save_path ./runs/facial
 
 # After iAutolabeling
-$ python train.py --model_name /home/wish/pro/ICME2024/src/iAutolabeling_conf_0.2/runs/facial/train5/weights/best.pt --yaml_path facial_v4.yaml --n_epoch 300 --n_patience 100 --bs 48 --imgsz 640 --pose 24.0 --n_worker $(nproc) --save_path ./run/facial
+$ python train.py --model_name /home/wish/pro/ICME2024/src/iAutolabeling_conf_0.2/runs/facial/train5/weights/best.pt --yaml_path facial_v4.yaml --n_epoch 300 --n_patience 100 --bs 48 --imgsz 640 --pose 24.0 --n_worker $(nproc) --save_path ./runs/facial
 ```
 
 </details>
