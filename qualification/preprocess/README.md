@@ -14,7 +14,8 @@ preprocess/
 ├── txt2json.py
 ├── duplicateCheck.py
 ├── pts2yolo.py
-└── pts2yolo_v2.py
+├── pts2yolo_v2.py
+└── aug.py
 ```
 
 </details>
@@ -33,6 +34,7 @@ $ python visualCheck.py
 
 - data: 3549 / 888 (v1-v3)
 - data_filtered: 3249 / 813 (v4)
+- x8: 25992 / 6504 (v4_x8)
 
 ### version 1 (whole image as bounding box)
 
@@ -90,7 +92,7 @@ $ python splitdata_v2.py
 </details>
 
 
-<details><summary>Semi labeling for yolo_labels</summary>
+<details><summary>2-1.Semi labeling for yolo_labels</summary>
   
 - Train a baseline model
 
@@ -123,5 +125,13 @@ $ python txt2json.py
 
 - Open with X-AnyLabeling
 
+</details>
+
+
+<details><summary>3. Data Augmentation</summary>
+
+```bash
+$ python aug.py
+```
 
 </details>
