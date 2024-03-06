@@ -14,4 +14,4 @@ opt = parse_opt()
 model = YOLO(opt.weight)  # load a custom model
 
 # Predict with the model
-results = model(opt.predict_folder, save_txt=True, project=opt.save_path)
+results = model(opt.predict_folder, save_txt=True, project=opt.save_path, conf=0.65)
