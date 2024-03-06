@@ -134,7 +134,7 @@ $ python train.py
 # output: ultralytics/runs/facial/train/weights/best.pt
 
 # v4_x8
-# $ python train.py --model_name ./runs/facial/train/weights/best.pt --yaml_path facial_v4_x8.yaml --n_worker $(nproc) --save_path ./runs/facial
+$ python train.py --model_name ./runs/facial/train/weights/best.pt --yaml_path facial_v4_x8.yaml --n_worker $(nproc) --save_path ./runs/facial
 # output: ultralytics/runs/facial/train2/weights/best.pt
 ```
 
