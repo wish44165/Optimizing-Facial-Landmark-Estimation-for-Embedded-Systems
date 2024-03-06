@@ -53,7 +53,12 @@ $ python train.py --model_name <model name> \
 $ python train.py --model_name yolov8n-pose.pt --yaml_path facial.yaml --n_epoch 300 --n_patience 100 --bs 8 --imgsz 640 --n_worker $(nproc) --save_path ./runs/facial
 
 # After iAutolabeling
-$ python train.py --model_name /home/wish/pro/ICME2024/src/iAutolabeling_conf_0.2/runs/facial/train5/weights/best.pt --yaml_path facial_v4.yaml --n_epoch 300 --n_patience 100 --bs 40 --imgsz 640 --pose 24.0 --n_worker $(nproc) --save_path ./runs/facial
+$ python train.py
+# output: ultralytics/runs/facial/train/weights/best.pt
+
+# x8
+# $ python train.py --model_name ./runs/facial/train/weights/best.pt --yaml_path facial_v4_x8.yaml --n_worker $(nproc) --save_path ./runs/facial
+# output: ultralytics/runs/facial/train2/weights/best.pt
 ```
 
 </details>
