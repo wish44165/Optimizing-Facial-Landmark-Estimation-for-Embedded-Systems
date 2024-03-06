@@ -8,7 +8,9 @@
 ## Progress
 
 - [ ] Stretch augmentation
+- [ ] Channel shift
 - [x] 06/03/2024 - Data augmentation (aug.py)
+- [x] 06/03/2024 - Adjust single_cls, pose, degrees, shear, mosaic, mixup, copy_paste, erasing while training
 - [x] 27/02/2024 - Iterative auto label (iAutolabeling/)
 - [x] 22/02/2024 - Filter and split dataset (duplicateCheck.py, splitdata_v2.py)
 - [x] 19/02/2024 - Split semi label (splitdata_yolo.py)
