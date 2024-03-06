@@ -84,12 +84,15 @@ $ unzip ivslab_facial_test_private_qualification.zip
     qualification/
     ├── preprocess/
         ├── visualCheck.py
+        ├── visualCheck_filtered.py
         ├── splitdata.py
         ├── splitdata_v2.py
         ├── splitdata_yolo.py
+        ├── duplicateCheck.py
         ├── pts2yolo.py
         ├── pts2yolo_v2.py
-        └── duplicateCheck.py
+        └── aug.py
+    preprocess/
     └── ultralytics/
         ├── facial.yaml
         ├── train.py
@@ -125,6 +128,14 @@ $ for i in `seq 5 19`; do python main.py --curr_iter ${i} --bs 32 | tee iterLog$
 # iAutolabeling_conf_0.5
 $ for i in `seq 0 9`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
 $ for i in `seq 10 19`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
+
+# After iAutolabeling (v4, Adjust single_cls, pose, degrees, shear, mosaic, mixup, copy_paste, erasing while training)
+$ python train.py
+# output: ultralytics/runs/facial/train/weights/best.pt
+
+# v4_x8
+# $ python train.py --model_name ./runs/facial/train/weights/best.pt --yaml_path facial_v4_x8.yaml --n_worker $(nproc) --save_path ./runs/facial
+# output: ultralytics/runs/facial/train2/weights/best.pt
 ```
 
 </details>
@@ -171,6 +182,7 @@ $ for i in `seq 10 19`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt
 - [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
 - [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
 - [FacialLandmarkDetection](https://github.com/nicknochnack/FacialLandmarkDetection)
+- [Colour Shift](https://github.com/mayasarena/colour-shift)
 
 
 
