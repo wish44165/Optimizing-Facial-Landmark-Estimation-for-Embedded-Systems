@@ -80,6 +80,15 @@ $ python predict.py --weight <trained model> \
 </details>
 
 
+<details><summary>Submit</summary>
+
+```
+$ python submit.py
+```
+
+</details>
+
+
 <details><summary>Reference</summary>
 
 - [Model Training with Ultralytics YOLO](https://docs.ultralytics.com/modes/train/)
