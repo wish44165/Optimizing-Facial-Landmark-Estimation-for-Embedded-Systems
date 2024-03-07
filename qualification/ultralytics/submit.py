@@ -1,5 +1,6 @@
 import os
 import cv2
+import sys
 import copy
 
 # Function to parse the data and extract bounding box coordinates
@@ -18,7 +19,7 @@ def parse_data(data):
 
     return boxes, keypoints
 
-predictPath = '/home/wish/pro/ICME2024/src/ultralytics/runs/facial/predict2/labels/'
+predictPath = '/home/wish/pro/ICME2024/src/ultralytics/runs/facial/predict/labels/'
 predictList = os.listdir(predictPath)
 predictList = sorted(predictList)
 #print(len(predictList))
@@ -48,30 +49,66 @@ for predictn in predictList:
         data = file.readlines()
 
     boxes, keypoints = parse_data(data)
+
+    #### reorder ####
+    if len(keypoints) < 2:
+        pass
+    elif len(keypoints) == 2:
+        # re-order: compare rcx
+        #print(boxes)
+        #print(keypoints)
+        if boxes[0][1][0] > boxes[1][1][0]:
+            pass
+        else:
+            boxes = boxes[::-1]
+            keypoints = keypoints[::-1]
+            #print(boxes)
+            #print(keypoints)
+            #sys.exit()
+    elif len(keypoints) == 3:
+        # re-order: compare rcx
+        print(ip)
+        print(boxes)
+        print(keypoints)
+
+        # Get the sorted indices of boxes in descending order
+        sorted_indices = sorted(range(len(boxes)), key=lambda i: boxes[i][1], reverse=True)
+        # Implement the sorted order on list2
+        boxes = sorted(boxes, key=lambda x: x[1][0], reverse=True)
+        keypoints = [keypoints[i] for i in sorted_indices]
+
+        #print('='*100)
+        #print(sorted_indices)
+        #print('='*100)
+        #print(boxes)
+        #print(keypoints)
+    else:    # len(keypoints) > 3
+        print(ip, len(keypoints))
     
     # Plot keypoints
     with open(sp, 'w') as file:
         ct = 0
+
         for kpts in keypoints:
-            if len(keypoints) > 1:
 
-                # re-order: compare rcx
-                #print(boxes)
-                #print(keypoints)
-                if boxes[0][1][0] > boxes[1][1][0]:
-                    pass
-                else:
-                    boxes = boxes[::-1]
-                    keypoints = keypoints[::-1]
-                #print(boxes)
-                #print(keypoints)
-
-                if ct == 0:
-                    file.write('version: 1(Right)\n')
-                else:
-                    file.write('version: 1(Left)\n')
-            else:
+            if len(keypoints) < 2:
                 file.write('version: 1\n')
+            elif len(keypoints) == 2:
+                if ct == 0:
+                    file.write('version: 1(right one)\n')
+                else:
+                    file.write('version: 1(left one)\n')
+
+            elif len(keypoints) == 3:
+                if ct == 0:
+                    file.write('version: 1(right one)\n')
+                elif ct == 1:
+                    file.write('version: 1(middle one)\n')
+                else:
+                    file.write('version: 1(left one)\n')
+            else:    # len(keypoints) > 3:
+                print(ip, len(keypoints))
+
             file.write('n_points: 51\n')
             file.write('{\n')
             for i in range(0, len(kpts), 3):
@@ -84,6 +121,5 @@ for predictn in predictList:
             file.write('}\n')
 
             ct += 1
-
 
 print(checkList)
