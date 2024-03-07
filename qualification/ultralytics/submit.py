@@ -116,8 +116,8 @@ for predictn in predictList:
                 if visibility > 0:  # Only plot visible keypoints
                     # Convert keypoints to pixel coordinates
                     kpt_x, kpt_y = x * width, y * height
-                    file.write(str(kpt_x) + ' ')
-                    file.write(str(kpt_y) + '\n')
+                    file.write(str(round(kpt_x, 3)) + ' ')
+                    file.write(str(round(kpt_y, 3)) + '\n')
             file.write('}\n')
 
             ct += 1
