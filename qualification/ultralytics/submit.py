@@ -67,9 +67,9 @@ for predictn in predictList:
             #sys.exit()
     elif len(keypoints) == 3:
         # re-order: compare rcx
-        print(ip)
-        print(boxes)
-        print(keypoints)
+        #print(ip)
+        #print(boxes)
+        #print(keypoints)
 
         # Get the sorted indices of boxes in descending order
         sorted_indices = sorted(range(len(boxes)), key=lambda i: boxes[i][1], reverse=True)
