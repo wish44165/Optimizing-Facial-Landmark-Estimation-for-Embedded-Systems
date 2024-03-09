@@ -140,6 +140,9 @@ $ python train.py --model_name ./runs/facial/train/weights/best.pt --yaml_path f
 # submit
 $ python predict.py
 $ python submit.py
+
+$ fitTest_aug.py
+
 ```
 
 </details>
