@@ -19,7 +19,7 @@ def parse_data(data):
 
     return boxes, keypoints
 
-predictPath = '/home/wish/pro/ICME2024/src/ultralytics/runs/facial/predict/labels/'
+predictPath = '/home/wish/pro/ICME2024/qualification/ultralytics/runs/facial/predict/labels/'
 predictList = os.listdir(predictPath)
 predictList = sorted(predictList)
 #print(len(predictList))
@@ -116,8 +116,8 @@ for predictn in predictList:
                 if visibility > 0:  # Only plot visible keypoints
                     # Convert keypoints to pixel coordinates
                     kpt_x, kpt_y = x * width, y * height
-                    file.write(str(round(kpt_x, 3)) + ' ')
-                    file.write(str(round(kpt_y, 3)) + '\n')
+                    file.write(str(round(kpt_x, 1)) + ' ')
+                    file.write(str(round(kpt_y, 1)) + '\n')
             file.write('}\n')
 
             ct += 1
