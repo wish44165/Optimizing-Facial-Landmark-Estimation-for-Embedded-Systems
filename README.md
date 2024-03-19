@@ -7,8 +7,6 @@
 
 ## Progress
 
-- [ ] Stretch augmentation
-- [ ] Channel shift
 - [x] 06/03/2024 - Data augmentation (aug.py)
 - [x] 06/03/2024 - Adjust single_cls, pose, degrees, shear, mosaic, mixup, copy_paste, erasing while training
 - [x] 27/02/2024 - Iterative auto label (iAutolabeling/)
@@ -164,6 +162,13 @@ $ fitTest_aug.py
 
 ## 4. Leaderboard Scores
 
+### 4.1. Qualification Competition
+
+- [best.pt]()
+
+| Leaderboards     | Filename               | Upload time         | Evaluation result | Ranking |
+| ---------------- | ---------------------- | ------------------- | ----------------- | ------- |
+| Public & Private | submission.zip         | 2024-03-10 01:48:13 | 18.808020         | 1/26    |
 
 
 
