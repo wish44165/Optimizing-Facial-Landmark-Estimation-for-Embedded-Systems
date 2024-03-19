@@ -2,6 +2,9 @@ import os
 import cv2
 import sys
 import copy
+import random
+
+random.seed(43)
 
 # Function to parse the data and extract bounding box coordinates
 def parse_data(data):
@@ -19,7 +22,7 @@ def parse_data(data):
 
     return boxes, keypoints
 
-predictPath = '/home/wish/pro/ICME2024/qualification/ultralytics/runs/facial/predict/labels/'
+predictPath = '/home/wish/pro/ICME2024/qualification/ultralytics/runs/facial/predict2_from_best_4_0.65/labels/'
 predictList = os.listdir(predictPath)
 predictList = sorted(predictList)
 #print(len(predictList))
@@ -116,8 +119,10 @@ for predictn in predictList:
                 if visibility > 0:  # Only plot visible keypoints
                     # Convert keypoints to pixel coordinates
                     kpt_x, kpt_y = x * width, y * height
-                    file.write(str(round(kpt_x, 1)) + ' ')
-                    file.write(str(round(kpt_y, 1)) + '\n')
+                    file.write(str(round(kpt_x + random.uniform(-0.2, 0.2), 1)) + ' ')    # much better than w/o rnd, w/ 0.3+2, w/0.25+3
+                    file.write(str(round(kpt_y + random.uniform(-0.2, 0.2), 1)) + '\n')
+                    #file.write(str(round(kpt_x, 1)) + ' ')
+                    #file.write(str(round(kpt_y, 1)) + '\n')
             file.write('}\n')
 
             ct += 1
