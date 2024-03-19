@@ -11,7 +11,7 @@ final/
 
 <details>
 
-<summary>1.Create Conda Environments</summary>
+<summary>1. Create Conda Environments</summary>
 
 ```bash
 $ conda create -n yolov8 python=3.10 -y
@@ -24,7 +24,7 @@ $ cd ultralytics/
 </details>
 
 
-<details><summary>2.run_model.py</summary>
+<details><summary>2. Execute run_model.py</summary>
 
 ```bash
 $ python run_model.py ./imageList.txt test_data
