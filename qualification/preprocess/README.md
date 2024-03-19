@@ -15,7 +15,8 @@ preprocess/
 ├── duplicateCheck.py
 ├── pts2yolo.py
 ├── pts2yolo_v2.py
-└── aug.py
+├── aug.py
+└── fitTest_aug.py
 ```
 
 </details>
@@ -35,6 +36,7 @@ $ python visualCheck.py
 - data: 3549 / 888 (v1-v3)
 - data_filtered: 3249 / 813 (v4)
 - x8: 25992 / 6504 (v4_x8)
+- fitTest: 987 / 249 (t0)
 
 ### version 1 (whole image as bounding box)
 
@@ -133,5 +135,16 @@ $ python txt2json.py
 ```bash
 $ python aug.py
 ```
+
+</details>
+
+
+<details><summary>4. Fit Test Data</summary>
+
+```bash
+$ python fitTest_aug.py
+```
+
+- output: `../../datasets/t0/`
 
 </details>
