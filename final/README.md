@@ -17,6 +17,7 @@ final/
 ```bash
 $ conda create -n yolov8 python=3.10 -y
 $ conda activate yolov8
+$ pip install ultralytics
 $ git clone https://github.com/ultralytics/ultralytics.git
 $ cd ultralytics/
 ```
