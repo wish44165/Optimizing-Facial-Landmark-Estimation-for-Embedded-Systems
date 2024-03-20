@@ -58,3 +58,6 @@ $ python run_model_tflite.py ./imageList.txt test_data
 
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
 - [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
+- [Interpreting YOLOv8 Pose outputs in tflite #4771](https://github.com/ultralytics/ultralytics/issues/4771)
+    - [yolov8 tflite dg_export.ipynb](https://colab.research.google.com/drive/1yjCEwwFuMKvFJceSDfyWrUWOSfvLlPjl?usp=sharing#scrollTo=v_QB06rnjz9e)
+        - [ultralytics_yolov8](https://github.com/DeGirum/ultralytics_yolov8)
