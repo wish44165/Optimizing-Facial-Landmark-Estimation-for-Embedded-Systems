@@ -2,6 +2,7 @@
 
 ```bash
 final/
+├── requirements.txt
 ├── best.pt
 ├── best.tflite
 ├── run_model_pt.py
