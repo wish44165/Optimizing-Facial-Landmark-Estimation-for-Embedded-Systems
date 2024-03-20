@@ -57,3 +57,4 @@ $ python run_model_tflite.py ./imageList.txt test_data
 
 
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
+- [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
