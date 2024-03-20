@@ -2,7 +2,6 @@
 
 ```bash
 final/
-├── requirements.txt
 ├── best.pt
 ├── best.tflite
 ├── run_model_pt.py
@@ -20,9 +19,6 @@ $ conda create -n yolov8 python=3.10 -y
 $ conda activate yolov8
 $ git clone https://github.com/ultralytics/ultralytics.git
 $ cd ultralytics/
-$ pip install nvidia-pyindex
-$ pip install onnx-graphsurgeon
-$ pip install -r requirements.txt
 ```
   
 </details>
