@@ -19,6 +19,9 @@ final/
 ```bash
 $ conda create -n yolov8 python=3.10 -y
 $ conda activate yolov8
+$ pip install ultralytics
+$ pip install nvidia-pyindex
+$ pip install onnx-graphsurgeon
 $ pip install -r requirements.txt
 $ git clone https://github.com/ultralytics/ultralytics.git
 $ cd ultralytics/
