@@ -7,6 +7,9 @@
 
 ## Progress
 
+- [ ] 22/03/2024 - submission_v2.zip (best_v1.pt, calculating...)
+- [x] 21/03/2024 - submission_v1.zip (best_v1.pt, 0.0: The requirements.txt file you uploaded is missing quite a few items, such as opencv, among others.)
+- [x] 20/03/2024 - submission_v0.zip (best_v1.pt, 0.0: Lack tflite model file.)
 - [x] 06/03/2024 - Data augmentation (aug.py)
 - [x] 06/03/2024 - Adjust single_cls, pose, degrees, shear, mosaic, mixup, copy_paste, erasing while training
 - [x] 27/02/2024 - Iterative auto label (iAutolabeling/)
@@ -98,15 +101,14 @@ $ unzip ivslab_facial_test_private_qualification.zip
         └── predict.py
 
     # Final Competition
-    #mx/
-    #├── requirements.txt
-    #├── calculate.py
-    #├── cal_model_size.py
-    #├── cal_model_complexity.py
-    #├── run_detection_pt.py
-    #├── run_detection_onnx.py
-    #├── best.csv
-    #└── best.txt
+    final/
+    ├── requirements.txt
+    ├── best.pt
+    ├── best.tflite
+    ├── convert2tflite.py
+    ├── run_model_pt.py
+    ├── run_model_tflite.py
+    └── techreport.pdf
     ```
 
 </details>
@@ -171,6 +173,18 @@ $ fitTest_aug.py
 | Public & Private | submission.zip         | 2024-03-10 01:48:13 | 18.808020         | 1/26    |
 
 
+### 4.2. Final Competition
+
+- [best_v1.pt]()
+- [best_v2.pt]()
+- [best_v3.pt]()
+- [best_v4.pt]()
+
+| Leaderboards     | Filename               | Upload time         | Evaluation result | Ranking |
+| ---------------- | ---------------------- | ------------------- | ----------------- | ------- |
+|  | submission.zip         |  |          |     |
+
+
 
 ## 5. GitHub Acknowledgement
 
@@ -196,7 +210,6 @@ $ fitTest_aug.py
 - [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
 - [FacialLandmarkDetection](https://github.com/nicknochnack/FacialLandmarkDetection)
 - [Colour Shift](https://github.com/mayasarena/colour-shift)
-
 
 
 
