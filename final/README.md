@@ -6,6 +6,7 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 ```bash
 final/
 ├── requirements.txt
+├── environment.yml
 ├── best.pt
 ├── best.tflite
 ├── run_model_pt.py
@@ -15,9 +16,7 @@ final/
 ```
 
 
-<details>
-
-<summary>0.1. Create Conda Environments</summary>
+<details><summary>1. Create Conda Environments</summary>
 
 - for pip users
 
@@ -46,7 +45,7 @@ $ conda env create -f environment.yml
 </details>
 
 
-<details><summary>0.2. Convert to .tflite</summary>
+<details><summary>2. Convert to .tflite</summary>
 
 ```bash
 $ python convert2tflite.py
@@ -55,27 +54,17 @@ $ python convert2tflite.py
 </details>
 
 
-<details><summary>1.1. Execute run_model_pt.py</summary>
-
-- for best.pt inference
+<details><summary>3. Execute run_model.py</summary>
 
 ```bash
+# for best.pt inference
 $ python run_model_pt.py ./imageList.txt test_data
-```
 
-</details>
-
-
-<details><summary>1.2. Execute run_model_tflite.py</summary>
-
-- for best.tflite inference
-
-```bash
+# for best.tflite inference
 $ python run_model_tflite.py ./imageList.txt test_data
 ```
 
 </details>
-
 
 
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
