@@ -19,6 +19,8 @@ final/
 
 <summary>0.1. Create Conda Environments</summary>
 
+- for pip users
+
 ```bash
 $ conda env remove -n yuhs1
 $ conda create -n yuhs1 python=3.10 -y
@@ -28,7 +30,19 @@ $ pip install nvidia-pyindex
 $ pip install onnx-graphsurgeon
 $ pip install -r requirements.txt
 ```
-  
+
+- for Conda users
+
+```bash
+$ conda env create -f environment.yml
+```
+
+- for Docker users
+
+```bash
+
+```
+
 </details>
 
 
