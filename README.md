@@ -7,7 +7,8 @@
 
 ## Progress
 
-- [ ] 22/03/2024 - submission_v2.zip (best_v1.pt, calculating...)
+- [x] 23/03/2024 - submission_v3.zip (best_v1.pt, waiting...)
+- [x] 22/03/2024 - submission_v2.zip (best_v1.pt, 0.0: ImportError: cannot import name 'Self' from 'typing_extensions' (/home/ivslab/anaconda3/lib/python3.10/site-packages/typing_extensions.py))
 - [x] 21/03/2024 - submission_v1.zip (best_v1.pt, 0.0: The requirements.txt file you uploaded is missing quite a few items, such as opencv, among others.)
 - [x] 20/03/2024 - submission_v0.zip (best_v1.pt, 0.0: Lack tflite model file.)
 - [x] 06/03/2024 - Data augmentation (aug.py)
