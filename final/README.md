@@ -17,9 +17,9 @@ final/
 <summary>0.1. Create Conda Environments</summary>
 
 ```bash
-$ conda env remove -n yolov8
-$ conda create -n yolov8 python=3.10 -y
-$ conda activate yolov8
+$ conda env remove -n yuhs1
+$ conda create -n yuhs1 python=3.10 -y
+$ conda activate yuhs1
 $ pip install ultralytics
 $ pip install nvidia-pyindex
 $ pip install onnx-graphsurgeon
