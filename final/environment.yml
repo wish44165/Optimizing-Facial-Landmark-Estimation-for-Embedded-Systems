@@ -1,0 +1,19 @@
+name: yuhs1
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - ultralytics
+    - nvidia-pyindex
+    - onnx-graphsurgeon
+    - tensorflow-cpu<=2.13.1
+    - onnx>=1.9.0
+    - onnx2tf>=1.15.4,<=1.17.5
+    - onnxsim>=0.4.33
+    - onnxruntime
+    - sng4onnx>=1.0.1
+    - tflite_support
+    - tflite_runtime
