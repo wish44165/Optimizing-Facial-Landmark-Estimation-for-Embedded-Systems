@@ -1,5 +1,8 @@
 ## YOLOv8n-pose
 
+The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operating systems.
+
+
 ```bash
 final/
 ├── requirements.txt
@@ -40,6 +43,8 @@ $ python convert2tflite.py
 
 <details><summary>1.1. Execute run_model_pt.py</summary>
 
+- for best.pt inference
+
 ```bash
 $ python run_model_pt.py ./imageList.txt test_data
 ```
@@ -48,6 +53,8 @@ $ python run_model_pt.py ./imageList.txt test_data
 
 
 <details><summary>1.2. Execute run_model_tflite.py</summary>
+
+- for best.tflite inference
 
 ```bash
 $ python run_model_tflite.py ./imageList.txt test_data
