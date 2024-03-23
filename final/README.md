@@ -17,6 +17,7 @@ final/
 <summary>0.1. Create Conda Environments</summary>
 
 ```bash
+$ conda env remove -n yolov8
 $ conda create -n yolov8 python=3.10 -y
 $ conda activate yolov8
 $ pip install ultralytics
