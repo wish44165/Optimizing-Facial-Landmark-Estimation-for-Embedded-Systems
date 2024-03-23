@@ -24,8 +24,6 @@ $ pip install ultralytics
 $ pip install nvidia-pyindex
 $ pip install onnx-graphsurgeon
 $ pip install -r requirements.txt
-$ git clone https://github.com/ultralytics/ultralytics.git
-$ cd ultralytics/
 ```
   
 </details>
