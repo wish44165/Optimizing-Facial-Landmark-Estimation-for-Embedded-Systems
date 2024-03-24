@@ -12,7 +12,8 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 ## Progress
 
-- [ ] 23/03/2024 - submission_v3.zip (best_v1.pt, waiting...)
+- [ ] 23/03/2024 - submission_v4.zip (best_v2.pt, waiting...)
+- [x] 23/03/2024 - submission_v3.zip (best_v1.pt, 7.93 (17.897, 13989.5, 4.72339, 1808.07, 18868.5))
 - [x] 22/03/2024 - submission_v2.zip (best_v1.pt, 0.0: ImportError: cannot import name 'Self' from 'typing_extensions' (/home/ivslab/anaconda3/lib/python3.10/site-packages/typing_extensions.py))
 - [x] 21/03/2024 - submission_v1.zip (best_v1.pt, 0.0: The requirements.txt file you uploaded is missing quite a few items, such as opencv, among others.)
 - [x] 20/03/2024 - submission_v0.zip (best_v1.pt, 0.0: Lack tflite model file.)
