@@ -67,6 +67,19 @@ $ python run_model_tflite.py ./imageList.txt test_data
 </details>
 
 
+
+<details><summary>3. Execute run_model.py</summary>
+
+```bash
+# ivslab_facial _testing_example_private_final
+$ python predict.py
+# preprocess
+$ fitTest_aug.py
+```
+
+</details>
+
+
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
 - [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
 - [Model optimization](https://www.tensorflow.org/lite/performance/model_optimization)
