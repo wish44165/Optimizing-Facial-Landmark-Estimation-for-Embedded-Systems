@@ -69,7 +69,10 @@ $ python run_model_tflite.py ./imageList.txt test_data
 
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
 - [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
+- [Model optimization](https://www.tensorflow.org/lite/performance/model_optimization)
+- [Confusion about different TFLite quantization methods and corresponding output files #3153](https://github.com/ultralytics/ultralytics/issues/3153)
 - [Improve TFLite INT8 detection accuracy #7372](https://github.com/ultralytics/ultralytics/pull/7372)
 - [Interpreting YOLOv8 Pose outputs in tflite #4771](https://github.com/ultralytics/ultralytics/issues/4771)
     - [yolov8 tflite dg_export.ipynb](https://colab.research.google.com/drive/1yjCEwwFuMKvFJceSDfyWrUWOSfvLlPjl?usp=sharing#scrollTo=v_QB06rnjz9e)
         - [ultralytics_yolov8](https://github.com/DeGirum/ultralytics_yolov8)
+- [Model optimization #6242](https://github.com/ultralytics/ultralytics/issues/6242)
