@@ -1,4 +1,0 @@
-./demo/image_0001.png
-./demo/image_0180.png
-./demo/image_0429.png
-./demo/image_1148.png
