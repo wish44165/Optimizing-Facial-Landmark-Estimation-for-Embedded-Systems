@@ -37,6 +37,9 @@ $ python visualCheck.py
 - data_filtered: 3249 / 813 (v4)
 - x8: 25992 / 6504 (v4_x8)
 - fitTest: 987 / 249 (t0)
+---
+- fitTest: 95 / 24 (f0)
+- fitTest: 1082 / 273 (f1)
 
 ### version 1 (whole image as bounding box)
 
