@@ -15,7 +15,7 @@ preprocess/
 ├── duplicateCheck.py
 ├── pts2yolo.py
 ├── pts2yolo_v2.py
-├── aug.py
+├── copy_aug.py
 └── fitTest_aug.py
 ```
 
