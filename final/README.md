@@ -71,13 +71,24 @@ $ python run_model_tflite.py ./imageList.txt test_data
 
 
 
-<details><summary>3. Execute run_model.py</summary>
+<details><summary>4. Data augmentation</summary>
 
 ```bash
 # ivslab_facial _testing_example_private_final
 $ python predict.py
+
 # preprocess
 $ fitTest_aug.py
+$ channel_shift_aug.py
+```
+
+</details>
+
+
+<details><summary>5. Re-train</summary>
+
+```bash
+$ git clone https://github.com/ultralytics/ultralytics.git
 ```
 
 </details>
