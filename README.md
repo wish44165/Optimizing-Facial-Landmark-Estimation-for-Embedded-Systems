@@ -102,8 +102,7 @@ $ unzip ivslab_facial_test_private_qualification.zip
         ├── duplicateCheck.py
         ├── pts2yolo.py
         ├── pts2yolo_v2.py
-        └── aug.py
-    preprocess/
+        └── copy_aug.py
     └── ultralytics/
         ├── facial.yaml
         ├── train.py
@@ -112,6 +111,9 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
     # Final Competition
     final/
+    ├── preprocess/
+        ├── channel_shift_demo.py
+        └── channel_shift_aug.py
     ├── requirements.txt
     ├── best.pt
     ├── best.tflite
