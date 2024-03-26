@@ -117,6 +117,7 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 >> ultralytics/utils/ (new to old)
 >> copy ultralytics/yolo/cfg/ to ultralytics/cfg/ (in old)
 >> replace ultralytics/nn/modules.py -> ultralytics/nn/modules/__init__.py (in old)
+>> revise args.yaml
 ```
 
 </details>
