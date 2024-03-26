@@ -94,6 +94,25 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 </details>
 
 
+<details><summary>6. Pruning</summary>
+
+```bash
+# https://github.com/VainF/Torch-Pruning/tree/master/examples/yolov8
+$ conda create -n yuhs1_p python=3.10 -y
+$ conda activate yuhs1_p
+$ pip install ultralytics
+$ git clone https://github.com/VainF/Torch-Pruning.git
+$ mv Torch-Pruning v8_160_pruning
+$ cd v8_160_pruning/
+$ git clone https://github.com/ultralytics/ultralytics.git 
+$ cp yolov8_pruning.py ultralytics/
+$ cd ultralytics/
+$ git checkout 44c7c3514d87a5e05cfb14dba5a3eeb6eb860e70 # for compatibility
+```
+
+</details>
+
+
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
 - [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
 - [Model optimization](https://www.tensorflow.org/lite/performance/model_optimization)
