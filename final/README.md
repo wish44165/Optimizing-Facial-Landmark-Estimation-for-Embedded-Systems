@@ -113,10 +113,10 @@ $ git checkout 44c7c3514d87a5e05cfb14dba5a3eeb6eb860e70    # for compatibility
 # move from new to old
 $ git clone https://github.com/ultralytics/ultralytics.git
 
->> ultralytics/nn/modules
->> ultralytics/utils
->> ultralytics/cfg
->> ultralytics/nn/modules.py -> ultralytics/nn/modules/__init__.py
+>> ultralytics/nn/modules/ (new to old)
+>> ultralytics/utils/ (new to old)
+>> copy ultralytics/yolo/cfg/ to ultralytics/cfg/ (in old)
+>> replace ultralytics/nn/modules.py -> ultralytics/nn/modules/__init__.py (in old)
 ```
 
 </details>
