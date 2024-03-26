@@ -103,3 +103,8 @@ $ git clone https://github.com/ultralytics/ultralytics.git
     - [yolov8 tflite dg_export.ipynb](https://colab.research.google.com/drive/1yjCEwwFuMKvFJceSDfyWrUWOSfvLlPjl?usp=sharing#scrollTo=v_QB06rnjz9e)
         - [ultralytics_yolov8](https://github.com/DeGirum/ultralytics_yolov8)
 - [Model optimization #6242](https://github.com/ultralytics/ultralytics/issues/6242)
+- [ultralytics.utils.torch_utils.strip_optimizer(f='best.pt', s='')](https://docs.ultralytics.com/reference/utils/torch_utils/#ultralytics.utils.torch_utils.strip_optimizer)
+- [How to prune YoloV8 model and save it for finetuning ? #3507](https://github.com/ultralytics/ultralytics/issues/3507)
+- https://blog.csdn.net/qq_33596242/article/details/133774348
+- https://blog.csdn.net/qq_40672115/article/details/130155924
+- https://docs.ultralytics.com/zh/integrations/neural-magic/#benefits-of-integrating-neural-magics-deepsparse-with-yolov8
