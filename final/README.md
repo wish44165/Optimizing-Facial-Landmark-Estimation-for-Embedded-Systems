@@ -109,6 +109,14 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 $ cp examples/yolov8/yolov8_pruning.py ultralytics/
 $ cd ultralytics/
 $ git checkout 44c7c3514d87a5e05cfb14dba5a3eeb6eb860e70    # for compatibility
+
+# move from new to old
+$ git clone https://github.com/ultralytics/ultralytics.git
+
+>> ultralytics/nn/modules
+>> ultralytics/utils
+>> ultralytics/cfg
+>> ultralytics/nn/modules.py -> ultralytics/nn/modules/__init__.py
 ```
 
 </details>
