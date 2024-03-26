@@ -12,12 +12,15 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 ## Progress
 
-- [ ] 23/03/2024 - submission_v4.zip (best_v2.pt, waiting...)
+- [ ] 27/03/2024 - pruning
+- [x] 26/03/2024 - Channel shift augmentation (channel_shift_aug.py), submission_v8.zip (v8_160/)
+- [x] 25/03/2024 - submission_v5.zip (best_v3.pt)
+- [x] 24/03/2024 - submission_v4.zip (best_v2.pt)
 - [x] 23/03/2024 - submission_v3.zip (best_v1.pt, 7.93 (17.897, 13989.5, 4.72339, 1808.07, 18868.5))
 - [x] 22/03/2024 - submission_v2.zip (best_v1.pt, 0.0: ImportError: cannot import name 'Self' from 'typing_extensions' (/home/ivslab/anaconda3/lib/python3.10/site-packages/typing_extensions.py))
 - [x] 21/03/2024 - submission_v1.zip (best_v1.pt, 0.0: The requirements.txt file you uploaded is missing quite a few items, such as opencv, among others.)
 - [x] 20/03/2024 - submission_v0.zip (best_v1.pt, 0.0: Lack tflite model file.)
-- [x] 06/03/2024 - Data augmentation (aug.py)
+- [x] 06/03/2024 - Data augmentation (copy_aug.py)
 - [x] 06/03/2024 - Adjust single_cls, pose, degrees, shear, mosaic, mixup, copy_paste, erasing while training
 - [x] 27/02/2024 - Iterative auto label (iAutolabeling/)
 - [x] 22/02/2024 - Filter and split dataset (duplicateCheck.py, splitdata_v2.py)
