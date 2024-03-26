@@ -118,6 +118,41 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 >> copy ultralytics/yolo/cfg/ to ultralytics/cfg/ (in old)
 >> replace ultralytics/nn/modules.py -> ultralytics/nn/modules/__init__.py (in old)
 >> revise args.yaml
+
+# revise
+## 1. ERROR ##
+  File "/home/wish/anaconda3/envs/yuhs1_p/lib/python3.10/site-packages/torch_pruning/_helpers.py", line 91, in __call__
+    new_idxs = [ _HybridIndex(idx=i.idx + self.offset[0], root_idx=i.root_idx) for i in idxs]
+  File "/home/wish/anaconda3/envs/yuhs1_p/lib/python3.10/site-packages/torch_pruning/_helpers.py", line 91, in <listcomp>
+    new_idxs = [ _HybridIndex(idx=i.idx + self.offset[0], root_idx=i.root_idx) for i in idxs]
+IndexError: list index out of range
+## 1. SOL ##
+line 90-100 (add try, except)
+        try:
+            if self.reverse == True:
+                new_idxs = [ _HybridIndex(idx=i.idx + self.offset[0], root_idx=i.root_idx) for i in idxs]
+            else:
+                new_idxs = [
+                    _HybridIndex(idx = i.idx - self.offset[0], root_idx=i.root_idx)
+                    for i in idxs
+                    if (i.idx >= self.offset[0] and i.idx < self.offset[1])
+                ]
+        except:
+            new_idxs = idxs
+## 2. ERROR ##
+  File "/home/wish/anaconda3/envs/yuhs1_p/lib/python3.10/site-packages/torch_pruning/pruner/importance.py", line 205, in __call__
+    local_imp = local_imp[idxs]
+IndexError: index 768 is out of bounds for dimension 0 with size 384
+## 2. SOL ##
+                try:
+                    local_imp = local_imp[idxs]
+                except:
+                    pass
+
+                    try:
+                        w = layer.weight.data[idxs]
+                    except:
+                        pass
 ```
 
 </details>
