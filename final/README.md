@@ -105,6 +105,8 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 - [Model optimization #6242](https://github.com/ultralytics/ultralytics/issues/6242)
 - [ultralytics.utils.torch_utils.strip_optimizer(f='best.pt', s='')](https://docs.ultralytics.com/reference/utils/torch_utils/#ultralytics.utils.torch_utils.strip_optimizer)
 - [How to prune YoloV8 model and save it for finetuning ? #3507](https://github.com/ultralytics/ultralytics/issues/3507)
+- [How did you reduce capasity of best.pt after training? #7582](https://github.com/ultralytics/yolov5/issues/7582)
 - https://blog.csdn.net/qq_33596242/article/details/133774348
 - https://blog.csdn.net/qq_40672115/article/details/130155924
 - https://docs.ultralytics.com/zh/integrations/neural-magic/#benefits-of-integrating-neural-magics-deepsparse-with-yolov8
+- https://docs.ultralytics.com/zh/yolov5/tutorials/model_pruning_and_sparsity/
