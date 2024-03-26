@@ -101,6 +101,7 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 $ conda create -n yuhs1_p python=3.10 -y
 $ conda activate yuhs1_p
 $ pip install ultralytics
+$ pip install torch_pruning
 $ git clone https://github.com/VainF/Torch-Pruning.git
 $ mv Torch-Pruning v8_160_pruning
 $ cd v8_160_pruning/
