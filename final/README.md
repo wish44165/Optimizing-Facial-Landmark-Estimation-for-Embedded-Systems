@@ -103,6 +103,7 @@ $ pip install ultralytics
 $ pip install torch_pruning
 $ git clone https://github.com/ultralytics/ultralytics.git
 # copy best.pt, args.yaml, facial_f2.yaml from v8_96 to v8_96_pruning
+# revise utils/loss.py
 # copy yolov8_pruning to v8_96_pruning (https://github.com/VainF/Torch-Pruning/blob/master/examples/yolov8/yolov8_pruning.py)
 $ python yolov8_pruning.py
 ```
