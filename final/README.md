@@ -94,7 +94,7 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 </details>
 
 
-<details><summary>6. Pruning</summary>
+<details><summary>6. Pruning (ERROR)</summary>
 
 ```bash
 # https://github.com/VainF/Torch-Pruning/tree/master/examples/yolov8
@@ -158,6 +158,22 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
 </details>
 
 
+<details><summary>6.2. Pruning</summary>
+
+```bash
+$ conda create -n yuhs1_p python=3.10 -y
+$ conda activate yuhs1_p
+$ pip install ultralytics
+$ pip install torch_pruning
+$ git clone https://github.com/ultralytics/ultralytics.git
+# copy best.pt, args.yaml, facial_f2.yaml from v8_96 to v8_96_pruning
+# copy yolov8_pruning to v8_96_pruning (https://github.com/VainF/Torch-Pruning/blob/master/examples/yolov8/yolov8_pruning.py)
+$ python yolov8_pruning.py
+```
+
+</details>
+
+
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
 - [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
 - [Model optimization](https://www.tensorflow.org/lite/performance/model_optimization)
@@ -174,3 +190,6 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
 - https://blog.csdn.net/qq_40672115/article/details/130155924
 - https://docs.ultralytics.com/zh/integrations/neural-magic/#benefits-of-integrating-neural-magics-deepsparse-with-yolov8
 - https://docs.ultralytics.com/zh/yolov5/tutorials/model_pruning_and_sparsity/
+- [How to export the compared difference of two files as text or HTML in Visual Studio Code?](https://stackoverflow.com/questions/68464878/how-to-export-the-compared-difference-of-two-files-as-text-or-html-in-visual-stu)
+    - vimdiff -c TOhtml -c "w vimdiff_export.html | qa!" file1 file2
+    - diff file1 file2 > diff_export.txt
