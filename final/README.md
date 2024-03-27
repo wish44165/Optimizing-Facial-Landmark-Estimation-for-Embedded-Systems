@@ -94,7 +94,23 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 </details>
 
 
-<details><summary>6. Pruning (ERROR)</summary>
+<details><summary>6. Pruning</summary>
+
+```bash
+$ conda create -n yuhs1_p python=3.10 -y
+$ conda activate yuhs1_p
+$ pip install ultralytics
+$ pip install torch_pruning
+$ git clone https://github.com/ultralytics/ultralytics.git
+# copy best.pt, args.yaml, facial_f2.yaml from v8_96 to v8_96_pruning
+# copy yolov8_pruning to v8_96_pruning (https://github.com/VainF/Torch-Pruning/blob/master/examples/yolov8/yolov8_pruning.py)
+$ python yolov8_pruning.py
+```
+
+</details>
+
+
+<details><summary>Pruning (legacy)</summary>
 
 ```bash
 # https://github.com/VainF/Torch-Pruning/tree/master/examples/yolov8
@@ -153,22 +169,6 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
                         w = layer.weight.data[idxs]
                     except:
                         pass
-```
-
-</details>
-
-
-<details><summary>6.2. Pruning</summary>
-
-```bash
-$ conda create -n yuhs1_p python=3.10 -y
-$ conda activate yuhs1_p
-$ pip install ultralytics
-$ pip install torch_pruning
-$ git clone https://github.com/ultralytics/ultralytics.git
-# copy best.pt, args.yaml, facial_f2.yaml from v8_96 to v8_96_pruning
-# copy yolov8_pruning to v8_96_pruning (https://github.com/VainF/Torch-Pruning/blob/master/examples/yolov8/yolov8_pruning.py)
-$ python yolov8_pruning.py
 ```
 
 </details>
