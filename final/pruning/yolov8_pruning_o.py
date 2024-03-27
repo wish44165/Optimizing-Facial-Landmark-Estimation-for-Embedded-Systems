@@ -1,3 +1,4 @@
+# This code is adapted from Issue [#147](https://github.com/VainF/Torch-Pruning/issues/147), implemented by @Hyunseok-Kim0.
 import argparse
 import math
 import os
@@ -13,13 +14,14 @@ from matplotlib import pyplot as plt
 from ultralytics import YOLO, __version__
 from ultralytics.nn.modules import Detect, C2f, Conv, Bottleneck
 from ultralytics.nn.tasks import attempt_load_one_weight
-# from ultralytics.yolo.engine.model import TASK_MAP
-from ultralytics.engine.trainer import BaseTrainer
-from ultralytics.utils import yaml_load, LOGGER, RANK, DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS
-from ultralytics.utils.checks import check_yaml
-from ultralytics.utils.torch_utils import initialize_weights, de_parallel
+from ultralytics.yolo.engine.model import TASK_MAP
+from ultralytics.yolo.engine.trainer import BaseTrainer
+from ultralytics.yolo.utils import yaml_load, LOGGER, RANK, DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS
+from ultralytics.yolo.utils.checks import check_yaml
+from ultralytics.yolo.utils.torch_utils import initialize_weights, de_parallel
 
 import torch_pruning as tp
+
 
 def save_pruning_performance_graph(x, y1, y2, y3):
     """
@@ -208,7 +210,7 @@ def strip_optimizer_v2(f: Union[str, Path] = 'best.pt', s: str = '') -> None:
     """
     Disabled half precision saving. originated from ultralytics/yolo/utils/torch_utils.py
     """
-    x = torch.load(f, map_location=torch.device('cuda'))
+    x = torch.load(f, map_location=torch.device('cpu'))
     args = {**DEFAULT_CFG_DICT, **x['train_args']}  # combine model args with default args, preferring model args
     if x.get('ema'):
         x['model'] = x['ema']  # replace model with ema
@@ -245,7 +247,7 @@ def train_v2(self: YOLO, pruning=False, **kwargs):
         overrides['resume'] = self.ckpt_path
 
     self.task = overrides.get('task') or self.task
-    self.trainer = YOLO().task_map[self.task]["trainer"](overrides=overrides, _callbacks=self.callbacks)
+    self.trainer = TASK_MAP[self.task][1](overrides=overrides, _callbacks=self.callbacks)
 
     if not pruning:
         if not overrides.get('resume'):  # manually set model only if not resuming
@@ -279,8 +281,8 @@ def prune(args):
 
     # use coco128 dataset for 10 epochs fine-tuning each pruning iteration step
     # this part is only for sample code, number of epochs should be included in config file
-    #pruning_cfg['data'] = "./facial_f2.yaml"
-    #pruning_cfg['epochs'] = 10
+    pruning_cfg['data'] = "coco128.yaml"
+    pruning_cfg['epochs'] = 10
 
     model.model.train()
     replace_c2f_with_c2f_v2(model.model)
@@ -382,8 +384,8 @@ def prune(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', default='./best.pt', help='Pretrained pruning target model file')
-    parser.add_argument('--cfg', default='./args.yaml',
+    parser.add_argument('--model', default='yolov8m.pt', help='Pretrained pruning target model file')
+    parser.add_argument('--cfg', default='default.yaml',
                         help='Pruning config file.'
                              ' This file should have same format with ultralytics/yolo/cfg/default.yaml')
     parser.add_argument('--iterative-steps', default=16, type=int, help='Total pruning iteration step')

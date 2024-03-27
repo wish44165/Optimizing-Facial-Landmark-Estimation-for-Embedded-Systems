@@ -42,184 +42,186 @@ td div { overflow: auto; }
 </tr><tr>
 <td><div>
 <pre>
-<span class="Comment DiffAdd"># This code is adapted from Issue [#147](<a href="https://github.com/VainF/Torch-Pruning/issues/147)">https://github.com/VainF/Torch-Pruning/issues/147)</a>, implemented by @Hyunseok-Kim0.</span>
+<span class="Comment DiffAdd"># This code is adapted from Issue [#147](<a href="https://github.com/VainF/Torch-Pruning/issues/147)">https://github.com/VainF/Torch-Pruning/issues/147)</a>, implemented by @Hyunseok-Kim0.</span><span class="DiffAdd">                                                                                 </span>
 <span class="PreProc">import</span> argparse
 <span class="PreProc">import</span> math
 <span class="PreProc">import</span> os
 <span class="PreProc">from</span> copy <span class="PreProc">import</span> deepcopy
 <span class="PreProc">from</span> datetime <span class="PreProc">import</span> datetime
 <span class="PreProc">from</span> pathlib <span class="PreProc">import</span> Path
-<span class="Folded">+--  3 lines: from typing import List, Union------------------------------------</span>
+<span class="Folded">+--  3 lines: from typing import List, Union----------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="PreProc">import</span> torch
 <span class="PreProc">import</span> torch.nn <span class="Statement">as</span> nn
 <span class="PreProc">from</span> matplotlib <span class="PreProc">import</span> pyplot <span class="Statement">as</span> plt
 <span class="PreProc">from</span> ultralytics <span class="PreProc">import</span> YOLO, __version__
 <span class="PreProc">from</span> ultralytics.nn.modules <span class="PreProc">import</span> Detect, C2f, Conv, Bottleneck
 <span class="PreProc">from</span> ultralytics.nn.tasks <span class="PreProc">import</span> attempt_load_one_weight
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.yolo.engine.model </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> TASK_MAP                              </span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">engine.trainer </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> BaseTrainer                         </span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> yaml_load, LOGGER, RANK, DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS</span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">utils.checks </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> check_yaml                            </span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">utils.torch_utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> initialize_weights, de_parallel  </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.yolo.engine.model </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> TASK_MAP                                                                                                                                                          </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">engine.trainer </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> BaseTrainer                                                                                                                                                     </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> yaml_load, LOGGER, RANK, DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS                                                                                                              </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">utils.checks </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> check_yaml                                                                                                                                                        </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.</span><span class="DiffText">yolo.</span><span class="DiffChange">utils.torch_utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> initialize_weights, de_parallel                                                                                                                              </span>
 
 <span class="PreProc">import</span> torch_pruning <span class="Statement">as</span> tp
 
-<span class="DiffAdd"> </span><span class="DiffAdd">                                                                               </span>
+<span class="DiffAdd"> </span><span class="DiffAdd">                                                                                                                                                                                                           </span>
 <span class="Statement">def</span> <span class="Identifier">save_pruning_performance_graph</span>(x, y1, y2, y3):
     <span class="Constant">&quot;&quot;&quot;</span>
 <span class="Constant">    Draw performance change graph</span>
 <span class="Constant">    Parameters</span>
 <span class="Constant">    ----------</span>
 <span class="Constant">    x : List</span>
-<span class="Folded">+--175 lines: Parameter numbers of all pruning steps----------------------------</span>
+<span class="Folded">+--175 lines: Parameter numbers of all pruning steps--------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
 
 <span class="Statement">def</span> <span class="Identifier">strip_optimizer_v2</span>(f: Union[<span class="Identifier">str</span>, Path] = <span class="Constant">'</span><span class="Constant">best.pt</span><span class="Constant">'</span>, s: <span class="Identifier">str</span> = <span class="Constant">''</span>) -&gt; <span class="Identifier">None</span>:
     <span class="Constant">&quot;&quot;&quot;</span>
 <span class="Constant">    Disabled half precision saving. originated from ultralytics/yolo/utils/torch_utils.py</span>
 <span class="Constant">    </span><span class="Constant">&quot;&quot;&quot;</span>
-<span class="DiffChange">    x = torch.load(f, map_location=torch.device(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">c</span><span class="Constant DiffText">pu</span><span class="Constant DiffChange">'</span><span class="DiffChange">))                         </span>
+<span class="DiffChange">    x = torch.load(f, map_location=torch.device(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">c</span><span class="Constant DiffText">pu</span><span class="Constant DiffChange">'</span><span class="DiffChange">))                                                                                                                                                     </span>
     args = {**DEFAULT_CFG_DICT, **x[<span class="Constant">'</span><span class="Constant">train_args</span><span class="Constant">'</span>]}  <span class="Comment"># combine model args with default args, preferring model args</span>
     <span class="Statement">if</span> x.get(<span class="Constant">'</span><span class="Constant">ema</span><span class="Constant">'</span>):
         x[<span class="Constant">'</span><span class="Constant">model</span><span class="Constant">'</span>] = x[<span class="Constant">'</span><span class="Constant">ema</span><span class="Constant">'</span>]  <span class="Comment"># replace model with ema</span>
     <span class="Statement">for</span> k <span class="Statement">in</span> <span class="Constant">'</span><span class="Constant">optimizer</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">ema</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">updates</span><span class="Constant">'</span>:  <span class="Comment"># keys</span>
         x[k] = <span class="Identifier">None</span>
     <span class="Statement">for</span> p <span class="Statement">in</span> x[<span class="Constant">'</span><span class="Constant">model</span><span class="Constant">'</span>].parameters():
-<span class="Folded">+-- 24 lines: p.requires_grad = False-------------------------------------------</span>
+<span class="Folded">+-- 24 lines: p.requires_grad = False-----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
     <span class="Statement">if</span> <span class="Statement">not</span> overrides.get(<span class="Constant">'</span><span class="Constant">data</span><span class="Constant">'</span>):
         <span class="Statement">raise</span> <span class="Type">AttributeError</span>(<span class="Constant">&quot;</span><span class="Constant">Dataset required but missing, i.e. pass 'data=coco128.yaml'</span><span class="Constant">&quot;</span>)
     <span class="Statement">if</span> overrides.get(<span class="Constant">'</span><span class="Constant">resume</span><span class="Constant">'</span>):
         overrides[<span class="Constant">'</span><span class="Constant">resume</span><span class="Constant">'</span>] = self.ckpt_path
 
     self.task = overrides.get(<span class="Constant">'</span><span class="Constant">task</span><span class="Constant">'</span>) <span class="Statement">or</span> self.task
-<span class="DiffChange">    self.trainer = </span><span class="DiffText">TASK_MAP[self.task][</span><span class="Constant DiffText">1</span><span class="DiffChange">](overrides=overrides, _callbacks=self.callbacks)</span>
+<span class="DiffChange">    self.trainer = </span><span class="DiffText">TASK_MAP[self.task][</span><span class="Constant DiffText">1</span><span class="DiffChange">](overrides=overrides, _callbacks=self.callbacks)                                                                                                                   </span>
 
     <span class="Statement">if</span> <span class="Statement">not</span> pruning:
         <span class="Statement">if</span> <span class="Statement">not</span> overrides.get(<span class="Constant">'</span><span class="Constant">resume</span><span class="Constant">'</span>):  <span class="Comment"># manually set model only if not resuming</span>
             self.trainer.model = self.trainer.get_model(weights=self.model <span class="Statement">if</span> self.ckpt <span class="Statement">else</span> <span class="Identifier">None</span>, cfg=self.model.yaml)
             self.model = self.trainer.model
 
-<span class="Folded">+-- 21 lines: else:-------------------------------------------------------------</span>
+<span class="Folded">+-- 21 lines: else:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
     model.__setattr__(<span class="Constant">&quot;</span><span class="Constant">train_v2</span><span class="Constant">&quot;</span>, train_v2.__get__(model))
     pruning_cfg = yaml_load(check_yaml(args.cfg))
     batch_size = pruning_cfg[<span class="Constant">'</span><span class="Constant">batch</span><span class="Constant">'</span>]
 
     <span class="Comment"># use coco128 dataset for 10 epochs fine-tuning each pruning iteration step</span>
     <span class="Comment"># this part is only for sample code, number of epochs should be included in config file</span>
-<span class="DiffChange">    pruning_cfg[</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">data</span><span class="Constant DiffChange">'</span><span class="DiffChange">] = </span><span class="Constant DiffChange">&quot;</span><span class="Constant DiffText">coco128</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">&quot;</span><span class="DiffChange">                                        </span>
-    pruning_cfg[<span class="Constant">'</span><span class="Constant">epochs</span><span class="Constant">'</span>] = <span class="Constant">10</span>
+<span class="DiffChange">    </span><span class="DiffText">pruning_cfg[</span><span class="Constant DiffText">'</span><span class="Constant DiffText">data</span><span class="Constant DiffText">'</span><span class="DiffText">] = </span><span class="Constant DiffText">&quot;</span><span class="Constant DiffText">coco128</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">&quot;</span><span class="DiffChange">                                                                                                                                                                    </span>
+<span class="DiffChange">    pruning_cfg[</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">epochs</span><span class="Constant DiffChange">'</span><span class="DiffChange">] = </span><span class="Constant DiffChange">10</span><span class="DiffChange">                                                                                                                                                                              </span>
 
     model.model.train()
     replace_c2f_with_c2f_v2(model.model)
     initialize_weights(model.model)  <span class="Comment"># set BN.eps, momentum, ReLU.inplace</span>
 
-<span class="Folded">+-- 90 lines: for name, param in model.model.named_parameters():----------------</span>
+    <span class="Statement">for</span> name, param <span class="Statement">in</span> model.model.named_parameters():
+<span class="Folded">+-- 89 lines: param.requires_grad = True--------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
     model.export(<span class="Identifier">format</span>=<span class="Constant">'</span><span class="Constant">onnx</span><span class="Constant">'</span>)
 
 
 <span class="Statement">if</span> __name__ == <span class="Constant">&quot;</span><span class="Constant">__main__</span><span class="Constant">&quot;</span>:
     parser = argparse.ArgumentParser()
-<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--model</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">yolov8m</span><span class="Constant DiffChange">.pt</span><span class="Constant DiffChange">'</span><span class="DiffChange">, </span><span class="Identifier DiffChange">help</span><span class="DiffChange">=</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">Pretrained pruning target model file</span><span class="Constant DiffChange">'</span><span class="DiffChange">)</span>
-<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--cfg</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">default</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">'</span><span class="DiffChange">,                        </span>
+<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--model</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">yolov8m</span><span class="Constant DiffChange">.pt</span><span class="Constant DiffChange">'</span><span class="DiffChange">, </span><span class="Identifier DiffChange">help</span><span class="DiffChange">=</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">Pretrained pruning target model file</span><span class="Constant DiffChange">'</span><span class="DiffChange">)                                                                                                       </span>
+<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--cfg</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">default</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">'</span><span class="DiffChange">,                                                                                                                                                    </span>
                         <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Pruning config file.</span><span class="Constant">'</span>
                              <span class="Constant">'</span><span class="Constant"> This file should have same format with ultralytics/yolo/cfg/default.yaml</span><span class="Constant">'</span>)
     parser.add_argument(<span class="Constant">'</span><span class="Constant">--iterative-steps</span><span class="Constant">'</span>, default=<span class="Constant">16</span>, <span class="Identifier">type</span>=<span class="Identifier">int</span>, <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Total pruning iteration step</span><span class="Constant">'</span>)
     parser.add_argument(<span class="Constant">'</span><span class="Constant">--target-prune-rate</span><span class="Constant">'</span>, default=<span class="Constant">0.5</span>, <span class="Identifier">type</span>=<span class="Identifier">float</span>, <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Target pruning rate</span><span class="Constant">'</span>)
     parser.add_argument(<span class="Constant">'</span><span class="Constant">--max-map-drop</span><span class="Constant">'</span>, default=<span class="Constant">0.2</span>, <span class="Identifier">type</span>=<span class="Identifier">float</span>, <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Allowed maximum map drop after fine-tuning</span><span class="Constant">'</span>)
 
-<span class="Folded">+--  3 lines: args = parser.parse_args()----------------------------------------</span>
+<span class="Folded">+--  3 lines: args = parser.parse_args()--------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 </pre>
 </div></td>
 <td><div>
 <pre>
-<span class="DiffDelete">--------------------------------------------------------------------------------</span>
+<span class="DiffDelete">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="PreProc">import</span> argparse
 <span class="PreProc">import</span> math
 <span class="PreProc">import</span> os
 <span class="PreProc">from</span> copy <span class="PreProc">import</span> deepcopy
 <span class="PreProc">from</span> datetime <span class="PreProc">import</span> datetime
 <span class="PreProc">from</span> pathlib <span class="PreProc">import</span> Path
-<span class="Folded">+--  3 lines: from typing import List, Union------------------------------------</span>
+<span class="Folded">+--  3 lines: from typing import List, Union----------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="PreProc">import</span> torch
 <span class="PreProc">import</span> torch.nn <span class="Statement">as</span> nn
 <span class="PreProc">from</span> matplotlib <span class="PreProc">import</span> pyplot <span class="Statement">as</span> plt
 <span class="PreProc">from</span> ultralytics <span class="PreProc">import</span> YOLO, __version__
 <span class="PreProc">from</span> ultralytics.nn.modules <span class="PreProc">import</span> Detect, C2f, Conv, Bottleneck
 <span class="PreProc">from</span> ultralytics.nn.tasks <span class="PreProc">import</span> attempt_load_one_weight
-<span class="Comment DiffText"># </span><span class="Comment DiffChange">from ultralytics.yolo.engine.model import TASK_MAP</span><span class="DiffChange">                            </span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.engine.trainer </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> BaseTrainer                              </span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> yaml_load, LOGGER, RANK, DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS</span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.utils.checks </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> check_yaml                                 </span>
-<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.utils.torch_utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> initialize_weights, de_parallel       </span>
+<span class="Comment DiffText"># </span><span class="Comment DiffChange">from ultralytics.yolo.engine.model import TASK_MAP</span><span class="DiffChange">                                                                                                                                                        </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.engine.trainer </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> BaseTrainer                                                                                                                                                          </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> yaml_load, LOGGER, RANK, DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS                                                                                                                   </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.utils.checks </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> check_yaml                                                                                                                                                             </span>
+<span class="PreProc DiffChange">from</span><span class="DiffChange"> ultralytics.utils.torch_utils </span><span class="PreProc DiffChange">import</span><span class="DiffChange"> initialize_weights, de_parallel                                                                                                                                   </span>
 
 <span class="PreProc">import</span> torch_pruning <span class="Statement">as</span> tp
 
-<span class="DiffDelete">--------------------------------------------------------------------------------</span>
+<span class="DiffDelete">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="Statement">def</span> <span class="Identifier">save_pruning_performance_graph</span>(x, y1, y2, y3):
     <span class="Constant">&quot;&quot;&quot;</span>
 <span class="Constant">    Draw performance change graph</span>
 <span class="Constant">    Parameters</span>
 <span class="Constant">    ----------</span>
 <span class="Constant">    x : List</span>
-<span class="Folded">+--175 lines: Parameter numbers of all pruning steps----------------------------</span>
+<span class="Folded">+--175 lines: Parameter numbers of all pruning steps--------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
 
 <span class="Statement">def</span> <span class="Identifier">strip_optimizer_v2</span>(f: Union[<span class="Identifier">str</span>, Path] = <span class="Constant">'</span><span class="Constant">best.pt</span><span class="Constant">'</span>, s: <span class="Identifier">str</span> = <span class="Constant">''</span>) -&gt; <span class="Identifier">None</span>:
     <span class="Constant">&quot;&quot;&quot;</span>
 <span class="Constant">    Disabled half precision saving. originated from ultralytics/yolo/utils/torch_utils.py</span>
 <span class="Constant">    </span><span class="Constant">&quot;&quot;&quot;</span>
-<span class="DiffChange">    x = torch.load(f, map_location=torch.device(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">c</span><span class="Constant DiffText">uda</span><span class="Constant DiffChange">'</span><span class="DiffChange">))                        </span>
+<span class="DiffChange">    x = torch.load(f, map_location=torch.device(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">c</span><span class="Constant DiffText">uda</span><span class="Constant DiffChange">'</span><span class="DiffChange">))                                                                                                                                                    </span>
     args = {**DEFAULT_CFG_DICT, **x[<span class="Constant">'</span><span class="Constant">train_args</span><span class="Constant">'</span>]}  <span class="Comment"># combine model args with default args, preferring model args</span>
     <span class="Statement">if</span> x.get(<span class="Constant">'</span><span class="Constant">ema</span><span class="Constant">'</span>):
         x[<span class="Constant">'</span><span class="Constant">model</span><span class="Constant">'</span>] = x[<span class="Constant">'</span><span class="Constant">ema</span><span class="Constant">'</span>]  <span class="Comment"># replace model with ema</span>
     <span class="Statement">for</span> k <span class="Statement">in</span> <span class="Constant">'</span><span class="Constant">optimizer</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">ema</span><span class="Constant">'</span>, <span class="Constant">'</span><span class="Constant">updates</span><span class="Constant">'</span>:  <span class="Comment"># keys</span>
         x[k] = <span class="Identifier">None</span>
     <span class="Statement">for</span> p <span class="Statement">in</span> x[<span class="Constant">'</span><span class="Constant">model</span><span class="Constant">'</span>].parameters():
-<span class="Folded">+-- 24 lines: p.requires_grad = False-------------------------------------------</span>
+<span class="Folded">+-- 24 lines: p.requires_grad = False-----------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
     <span class="Statement">if</span> <span class="Statement">not</span> overrides.get(<span class="Constant">'</span><span class="Constant">data</span><span class="Constant">'</span>):
         <span class="Statement">raise</span> <span class="Type">AttributeError</span>(<span class="Constant">&quot;</span><span class="Constant">Dataset required but missing, i.e. pass 'data=coco128.yaml'</span><span class="Constant">&quot;</span>)
     <span class="Statement">if</span> overrides.get(<span class="Constant">'</span><span class="Constant">resume</span><span class="Constant">'</span>):
         overrides[<span class="Constant">'</span><span class="Constant">resume</span><span class="Constant">'</span>] = self.ckpt_path
 
     self.task = overrides.get(<span class="Constant">'</span><span class="Constant">task</span><span class="Constant">'</span>) <span class="Statement">or</span> self.task
-<span class="DiffChange">    self.trainer = </span><span class="DiffText">YOLO().task_map[self.task][</span><span class="Constant DiffText">&quot;</span><span class="Constant DiffText">trainer</span><span class="Constant DiffText">&quot;</span><span class="DiffChange">](overrides=overrides, _callbacks=self.callbacks)</span>
+<span class="DiffChange">    self.trainer = </span><span class="DiffText">YOLO().task_map[self.task][</span><span class="Constant DiffText">&quot;</span><span class="Constant DiffText">trainer</span><span class="Constant DiffText">&quot;</span><span class="DiffChange">](overrides=overrides, _callbacks=self.callbacks)                                                                                                    </span>
 
     <span class="Statement">if</span> <span class="Statement">not</span> pruning:
         <span class="Statement">if</span> <span class="Statement">not</span> overrides.get(<span class="Constant">'</span><span class="Constant">resume</span><span class="Constant">'</span>):  <span class="Comment"># manually set model only if not resuming</span>
             self.trainer.model = self.trainer.get_model(weights=self.model <span class="Statement">if</span> self.ckpt <span class="Statement">else</span> <span class="Identifier">None</span>, cfg=self.model.yaml)
             self.model = self.trainer.model
 
-<span class="Folded">+-- 21 lines: else:-------------------------------------------------------------</span>
+<span class="Folded">+-- 21 lines: else:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
     model.__setattr__(<span class="Constant">&quot;</span><span class="Constant">train_v2</span><span class="Constant">&quot;</span>, train_v2.__get__(model))
     pruning_cfg = yaml_load(check_yaml(args.cfg))
     batch_size = pruning_cfg[<span class="Constant">'</span><span class="Constant">batch</span><span class="Constant">'</span>]
 
     <span class="Comment"># use coco128 dataset for 10 epochs fine-tuning each pruning iteration step</span>
     <span class="Comment"># this part is only for sample code, number of epochs should be included in config file</span>
-<span class="DiffChange">    pruning_cfg[</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">data</span><span class="Constant DiffChange">'</span><span class="DiffChange">] = </span><span class="Constant DiffChange">&quot;</span><span class="Constant DiffText">./facial_f2</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">&quot;</span><span class="DiffChange">                                    </span>
-    pruning_cfg[<span class="Constant">'</span><span class="Constant">epochs</span><span class="Constant">'</span>] = <span class="Constant">10</span>
+<span class="DiffChange">    </span><span class="Comment DiffText">#pruning_cfg['data'] = &quot;./facial_f2</span><span class="Comment DiffChange">.yaml&quot;</span><span class="DiffChange">                                                                                                                                                               </span>
+<span class="DiffChange">    </span><span class="Comment DiffText">#</span><span class="Comment DiffChange">pruning_cfg['epochs'] = 10</span><span class="DiffChange">                                                                                                                                                                             </span>
 
     model.model.train()
     replace_c2f_with_c2f_v2(model.model)
     initialize_weights(model.model)  <span class="Comment"># set BN.eps, momentum, ReLU.inplace</span>
 
-<span class="Folded">+-- 90 lines: for name, param in model.model.named_parameters():----------------</span>
+    <span class="Statement">for</span> name, param <span class="Statement">in</span> model.model.named_parameters():
+<span class="Folded">+-- 89 lines: param.requires_grad = True--------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
     model.export(<span class="Identifier">format</span>=<span class="Constant">'</span><span class="Constant">onnx</span><span class="Constant">'</span>)
 
 
 <span class="Statement">if</span> __name__ == <span class="Constant">&quot;</span><span class="Constant">__main__</span><span class="Constant">&quot;</span>:
     parser = argparse.ArgumentParser()
-<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--model</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">./best</span><span class="Constant DiffChange">.pt</span><span class="Constant DiffChange">'</span><span class="DiffChange">, </span><span class="Identifier DiffChange">help</span><span class="DiffChange">=</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">Pretrained pruning target model file</span><span class="Constant DiffChange">'</span><span class="DiffChange">)</span>
-<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--cfg</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">./args</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">'</span><span class="DiffChange">,                         </span>
+<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--model</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">./best</span><span class="Constant DiffChange">.pt</span><span class="Constant DiffChange">'</span><span class="DiffChange">, </span><span class="Identifier DiffChange">help</span><span class="DiffChange">=</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">Pretrained pruning target model file</span><span class="Constant DiffChange">'</span><span class="DiffChange">)                                                                                                        </span>
+<span class="DiffChange">    parser.add_argument(</span><span class="Constant DiffChange">'</span><span class="Constant DiffChange">--cfg</span><span class="Constant DiffChange">'</span><span class="DiffChange">, default=</span><span class="Constant DiffChange">'</span><span class="Constant DiffText">./args</span><span class="Constant DiffChange">.yaml</span><span class="Constant DiffChange">'</span><span class="DiffChange">,                                                                                                                                                     </span>
                         <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Pruning config file.</span><span class="Constant">'</span>
                              <span class="Constant">'</span><span class="Constant"> This file should have same format with ultralytics/yolo/cfg/default.yaml</span><span class="Constant">'</span>)
     parser.add_argument(<span class="Constant">'</span><span class="Constant">--iterative-steps</span><span class="Constant">'</span>, default=<span class="Constant">16</span>, <span class="Identifier">type</span>=<span class="Identifier">int</span>, <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Total pruning iteration step</span><span class="Constant">'</span>)
     parser.add_argument(<span class="Constant">'</span><span class="Constant">--target-prune-rate</span><span class="Constant">'</span>, default=<span class="Constant">0.5</span>, <span class="Identifier">type</span>=<span class="Identifier">float</span>, <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Target pruning rate</span><span class="Constant">'</span>)
     parser.add_argument(<span class="Constant">'</span><span class="Constant">--max-map-drop</span><span class="Constant">'</span>, default=<span class="Constant">0.2</span>, <span class="Identifier">type</span>=<span class="Identifier">float</span>, <span class="Identifier">help</span>=<span class="Constant">'</span><span class="Constant">Allowed maximum map drop after fine-tuning</span><span class="Constant">'</span>)
 
-<span class="Folded">+--  3 lines: args = parser.parse_args()----------------------------------------</span>
+<span class="Folded">+--  3 lines: args = parser.parse_args()--------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 </pre>
 </div></td>
 </tr>
