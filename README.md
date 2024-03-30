@@ -15,8 +15,8 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 - [ ] 03/04/2024 -
 - [ ] 02/04/2024 -
 - [ ] 01/04/2024 - 
-- [ ] 31/03/2024 -
-- [ ] 30/03/2024 - DWConv
+- [ ] 31/03/2024 - C3TR
+- [x] 30/03/2024 - DWConv, submission_v11.zip (v9_96/)
 - [x] 29/03/2024 - submission_v10.zip (v8_128_pruning/)
 - [x] 28/03/2024 - Model pruning (yolov8_pruning.py), submission_v9.zip (v8_96_pruning/)
 - [x] 26/03/2024 - Channel shift augmentation (channel_shift_aug.py), submission_v8.zip (v8_160/)
