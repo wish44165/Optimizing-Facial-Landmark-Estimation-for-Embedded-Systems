@@ -197,6 +197,8 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
 - [Roughly calculate FLOPs (floating-point operations) of a tflite format model.](https://github.com/lisosia/tflite-flops)
     - python3 -m tflite_flops best.tflite
 - [TensorFlow Lite Model Analyzer](https://www.tensorflow.org/lite/guide/model_analyzer)
-    - tf.lite.experimental.Analyzer.analyze(model_path='best.tflite',
+    - ```
+      tf.lite.experimental.Analyzer.analyze(model_path='best.tflite',
                                             model_content=None,
                                             gpu_compatibility=False)
+      ```
