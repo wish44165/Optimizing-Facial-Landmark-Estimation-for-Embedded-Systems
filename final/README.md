@@ -195,3 +195,4 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
     - vimdiff -c TOhtml -c "w vimdiff_export.html | qa!" file1 file2
     - diff file1 file2 > diff_export.txt
 - [Roughly calculate FLOPs (floating-point operations) of a tflite format model.](https://github.com/lisosia/tflite-flops)
+    - python3 -m tflite_flops best.tflite
