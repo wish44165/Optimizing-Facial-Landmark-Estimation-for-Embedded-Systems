@@ -14,7 +14,7 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 - [ ] 03/04/2024 -
 - [ ] 02/04/2024 -
-- [ ] 01/04/2024 - 
+- [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step15/best.pt -> v9_96_pruning_c/step1/best.pt -> c_step1/)
 - [x] 31/03/2024 - C3TR, submission_v12.zip (v9_96_pruning/)
 - [x] 30/03/2024 - DWConv, submission_v11.zip (v9_96/)
 - [x] 29/03/2024 - submission_v10.zip (v8_128_pruning/)
