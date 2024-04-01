@@ -194,3 +194,4 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
 - [How to export the compared difference of two files as text or HTML in Visual Studio Code?](https://stackoverflow.com/questions/68464878/how-to-export-the-compared-difference-of-two-files-as-text-or-html-in-visual-stu)
     - vimdiff -c TOhtml -c "w vimdiff_export.html | qa!" file1 file2
     - diff file1 file2 > diff_export.txt
+- [Roughly calculate FLOPs (floating-point operations) of a tflite format model.](https://github.com/lisosia/tflite-flops)
