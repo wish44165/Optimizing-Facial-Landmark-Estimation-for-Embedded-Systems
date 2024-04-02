@@ -12,8 +12,8 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 ## Progress
 
-- [ ] 03/04/2024 - Remember add iou arugment
-- [x] 02/04/2024 - Imgsz=64, submission_v14.zip (c_step6/)
+- [ ] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml
+- [x] 02/04/2024 - submission_v14.zip (c_step6/)
 - [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step15/best.pt -> v9_96_pruning_c/step1/best.pt -> c_step1/)
 - [x] 31/03/2024 - C3TR, submission_v12.zip (v9_96_pruning/)
 - [x] 30/03/2024 - DWConv, submission_v11.zip (v9_96/)
@@ -22,7 +22,7 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 - [x] 26/03/2024 - Channel shift augmentation (channel_shift_aug.py), submission_v8.zip (v8_160/)
 - [x] 25/03/2024 - submission_v5.zip (best_v3.pt)
 - [x] 24/03/2024 - submission_v4.zip (best_v2.pt)
-- [x] 23/03/2024 - submission_v3.zip (best_v1.pt, 7.93 (17.897, 13989.5, 4.72339, 1808.07, 18868.5))
+- [x] 23/03/2024 - submission_v3.zip (best_v1.pt, 7.93)
 - [x] 22/03/2024 - submission_v2.zip (best_v1.pt, 0.0: ImportError: cannot import name 'Self' from 'typing_extensions' (/home/ivslab/anaconda3/lib/python3.10/site-packages/typing_extensions.py))
 - [x] 21/03/2024 - submission_v1.zip (best_v1.pt, 0.0: The requirements.txt file you uploaded is missing quite a few items, such as opencv, among others.)
 - [x] 20/03/2024 - submission_v0.zip (best_v1.pt, 0.0: Lack tflite model file.)
