@@ -12,8 +12,8 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 ## Progress
 
-- [ ] 03/04/2024 -
-- [ ] 02/04/2024 -
+- [ ] 03/04/2024 - Remember add iou arugment
+- [x] 02/04/2024 - Imgsz=64, submission_v14.zip (c_step6/)
 - [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step15/best.pt -> v9_96_pruning_c/step1/best.pt -> c_step1/)
 - [x] 31/03/2024 - C3TR, submission_v12.zip (v9_96_pruning/)
 - [x] 30/03/2024 - DWConv, submission_v11.zip (v9_96/)
