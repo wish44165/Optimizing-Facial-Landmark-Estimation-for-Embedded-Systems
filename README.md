@@ -12,7 +12,7 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 ## Progress
 
-- [ ] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml
+- [x] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml, submission_v15.zip (/home/wish/pro/ICME2024/final/v10_64_pruning/runs/facial/step_12_finetune/weights/)
 - [x] 02/04/2024 - submission_v14.zip (c_step6/)
 - [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step15/best.pt -> v9_96_pruning_c/step1/best.pt -> c_step1/)
 - [x] 31/03/2024 - C3TR, submission_v12.zip (v9_96_pruning/)
