@@ -17,20 +17,14 @@ $ pip install ultralytics
 <details><summary>Folder Structure</summary>
 
 ```
-src/
-├── preprocess/
-    └── data/
-        ├── images/
-            ├── train/
-            └── val/
-        └── labels/
-            ├── train/
-            └── val/
-└── ultralytics/
-    ├── facial.yaml
-    ├── train.py
-    ├── valid.py
-    └── predict.py
+ultralytics/
+├── facial.yaml
+├── facial_v4.yaml
+├── facial_v4_x8.yaml
+├── train.py
+├── valid.py
+├── predict.py
+└── submit.py
 ```
 
 </details>
