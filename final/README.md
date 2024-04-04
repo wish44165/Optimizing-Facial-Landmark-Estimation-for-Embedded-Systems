@@ -8,6 +8,9 @@ final/
 ├── preprocess/
     ├── channel_shift_demo.py
     └── channel_shift_aug.py
+├── pruning/
+    ├── ultralytics/utils/loss.py
+    └── yolov8_pruning.py
 ├── requirements.txt
 ├── environment.yml
 ├── best.pt
@@ -37,12 +40,6 @@ $ pip install -r requirements.txt
 
 ```bash
 $ conda env create -f environment.yml
-```
-
-- for Docker users
-
-```bash
-
 ```
 
 </details>
@@ -85,7 +82,7 @@ $ channel_shift_aug.py
 </details>
 
 
-<details><summary>6. Pruning</summary>
+<details><summary>5. Pruning</summary>
 
 ```bash
 $ conda create -n yuhs1_p python=3.10 -y
