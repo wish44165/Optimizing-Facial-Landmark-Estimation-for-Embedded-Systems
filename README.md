@@ -209,7 +209,7 @@ $ fitTest_aug.py
 
 - [best.pt]() [best.tflite]()
 
-| Leaderboards     | Filename               | Upload $ git clone https://github.com/ultralytics/ultralytics.gittime         | Evaluation result | Ranking |
+| Leaderboards     | Filename               | Upload              | Evaluation result | Ranking |
 | ---------------- | ---------------------- | ------------------- | ----------------- | ------- |
 |  | submission.zip         |  |          |     |
 
