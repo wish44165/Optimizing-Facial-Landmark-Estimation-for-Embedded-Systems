@@ -85,15 +85,6 @@ $ channel_shift_aug.py
 </details>
 
 
-<details><summary>5. Re-train</summary>
-
-```bash
-$ git clone https://github.com/ultralytics/ultralytics.git
-```
-
-</details>
-
-
 <details><summary>6. Pruning</summary>
 
 ```bash
@@ -106,70 +97,6 @@ $ git clone https://github.com/ultralytics/ultralytics.git
 # revise utils/loss.py
 # copy yolov8_pruning to v8_96_pruning (https://github.com/VainF/Torch-Pruning/blob/master/examples/yolov8/yolov8_pruning.py)
 $ python yolov8_pruning.py
-```
-
-</details>
-
-
-<details><summary>Pruning (legacy)</summary>
-
-```bash
-# https://github.com/VainF/Torch-Pruning/tree/master/examples/yolov8
-$ conda create -n yuhs1_p python=3.10 -y
-$ conda activate yuhs1_p
-$ pip install ultralytics
-$ pip install torch_pruning
-$ git clone https://github.com/VainF/Torch-Pruning.git
-$ mv Torch-Pruning v8_160_pruning
-$ cd v8_160_pruning/
-$ git clone https://github.com/ultralytics/ultralytics.git 
-$ cp examples/yolov8/yolov8_pruning.py ultralytics/
-$ cd ultralytics/
-$ git checkout 44c7c3514d87a5e05cfb14dba5a3eeb6eb860e70    # for compatibility
-
-# move from new to old
-$ git clone https://github.com/ultralytics/ultralytics.git
-
->> ultralytics/nn/modules/ (new to old)
->> ultralytics/utils/ (new to old)
->> copy ultralytics/yolo/cfg/ to ultralytics/cfg/ (in old)
->> replace ultralytics/nn/modules.py -> ultralytics/nn/modules/__init__.py (in old)
->> revise args.yaml
-
-# revise
-## 1. ERROR ##
-  File "/home/wish/anaconda3/envs/yuhs1_p/lib/python3.10/site-packages/torch_pruning/_helpers.py", line 91, in __call__
-    new_idxs = [ _HybridIndex(idx=i.idx + self.offset[0], root_idx=i.root_idx) for i in idxs]
-  File "/home/wish/anaconda3/envs/yuhs1_p/lib/python3.10/site-packages/torch_pruning/_helpers.py", line 91, in <listcomp>
-    new_idxs = [ _HybridIndex(idx=i.idx + self.offset[0], root_idx=i.root_idx) for i in idxs]
-IndexError: list index out of range
-## 1. SOL ##
-line 90-100 (add try, except)
-        try:
-            if self.reverse == True:
-                new_idxs = [ _HybridIndex(idx=i.idx + self.offset[0], root_idx=i.root_idx) for i in idxs]
-            else:
-                new_idxs = [
-                    _HybridIndex(idx = i.idx - self.offset[0], root_idx=i.root_idx)
-                    for i in idxs
-                    if (i.idx >= self.offset[0] and i.idx < self.offset[1])
-                ]
-        except:
-            new_idxs = idxs
-## 2. ERROR ##
-  File "/home/wish/anaconda3/envs/yuhs1_p/lib/python3.10/site-packages/torch_pruning/pruner/importance.py", line 205, in __call__
-    local_imp = local_imp[idxs]
-IndexError: index 768 is out of bounds for dimension 0 with size 384
-## 2. SOL ##
-                try:
-                    local_imp = local_imp[idxs]
-                except:
-                    pass
-
-                    try:
-                        w = layer.weight.data[idxs]
-                    except:
-                        pass
 ```
 
 </details>
@@ -192,10 +119,16 @@ IndexError: index 768 is out of bounds for dimension 0 with size 384
 - https://docs.ultralytics.com/zh/integrations/neural-magic/#benefits-of-integrating-neural-magics-deepsparse-with-yolov8
 - https://docs.ultralytics.com/zh/yolov5/tutorials/model_pruning_and_sparsity/
 - [How to export the compared difference of two files as text or HTML in Visual Studio Code?](https://stackoverflow.com/questions/68464878/how-to-export-the-compared-difference-of-two-files-as-text-or-html-in-visual-stu)
-    - vimdiff -c TOhtml -c "w vimdiff_export.html | qa!" file1 file2
-    - diff file1 file2 > diff_export.txt
+    - ```
+      vimdiff -c TOhtml -c "w vimdiff_export.html | qa!" file1 file2
+      ```
+    - ```
+      diff file1 file2 > diff_export.txt
+      ```
 - [Roughly calculate FLOPs (floating-point operations) of a tflite format model.](https://github.com/lisosia/tflite-flops)
-    - python3 -m tflite_flops best.tflite
+    - ```
+      python3 -m tflite_flops best.tflite
+      ```
 - [TensorFlow Lite Model Analyzer](https://www.tensorflow.org/lite/guide/model_analyzer)
     - ```
       tf.lite.experimental.Analyzer.analyze(model_path='best.tflite',
