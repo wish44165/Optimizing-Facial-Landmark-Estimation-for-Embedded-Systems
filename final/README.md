@@ -57,6 +57,9 @@ $ python convert2tflite.py
 <details><summary>3. Execute run_model.py</summary>
 
 ```bash
+# write imageList.txt file
+$ python writeImageList.py
+
 # for best.pt inference
 $ python run_model_pt.py ./imageList.txt test_data
 
