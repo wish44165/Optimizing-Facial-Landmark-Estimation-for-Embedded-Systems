@@ -12,9 +12,9 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 ## Progress
 
-- [x] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml, submission_v15.zip (/home/wish/pro/ICME2024/final/v10_64_pruning/runs/facial/step_12_finetune/weights/)
+- [x] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml, submission_v15.zip (v10_64_pruning/runs/facial/step_12_finetune/weights/)
 - [x] 02/04/2024 - submission_v14.zip (c_step6/)
-- [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step15/best.pt -> v9_96_pruning_c/step1/best.pt -> c_step1/)
+- [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step_15_finetune/ -> v9_96_pruning_c/step_1_finetune/ -> c_step1/)
 - [x] 31/03/2024 - C3TR, submission_v12.zip (v9_96_pruning/)
 - [x] 30/03/2024 - DWConv, submission_v11.zip (v9_96/)
 - [x] 29/03/2024 - submission_v10.zip (v8_128_pruning/)
@@ -99,33 +99,47 @@ $ unzip ivslab_facial_test_private_qualification.zip
     ```bash
     # Qualification Competition
     qualification/
+    ├── iAutolabeling/
     ├── preprocess/
         ├── visualCheck.py
         ├── visualCheck_filtered.py
         ├── splitdata.py
         ├── splitdata_v2.py
         ├── splitdata_yolo.py
+        ├── semi_labeling.py
+        ├── txt2json.py
         ├── duplicateCheck.py
         ├── pts2yolo.py
         ├── pts2yolo_v2.py
-        └── copy_aug.py
+        ├── copy_aug.py
+        └── fitTest_aug.py
     └── ultralytics/
         ├── facial.yaml
+        ├── facial_v4.yaml
+        ├── facial_v4_x8.yaml
         ├── train.py
         ├── valid.py
-        └── predict.py
+        ├── predict.py
+        └── submit.py
 
     # Final Competition
     final/
+    ├── C3TR/
+    ├── demo/
     ├── preprocess/
         ├── channel_shift_demo.py
         └── channel_shift_aug.py
+    ├── pruning/
+        ├── ultralytics/utils/loss.py
+        └── yolov8_pruning.py
     ├── requirements.txt
+    ├── environment.yml
+    ├── writeImageList.py
     ├── best.pt
     ├── best.tflite
-    ├── convert2tflite.py
     ├── run_model_pt.py
     ├── run_model_tflite.py
+    ├── convert2tflite.py
     └── techreport.pdf
     ```
 
@@ -193,41 +207,38 @@ $ fitTest_aug.py
 
 ### 4.2. Final Competition
 
-- [best_v1.pt]()
-- [best_v2.pt]()
-- [best_v3.pt]()
-- [best_v4.pt]()
+- [best.pt]() [best.tflite]()
 
-| Leaderboards     | Filename               | Upload time         | Evaluation result | Ranking |
+| Leaderboards     | Filename               | Upload $ git clone https://github.com/ultralytics/ultralytics.gittime         | Evaluation result | Ranking |
 | ---------------- | ---------------------- | ------------------- | ----------------- | ------- |
 |  | submission.zip         |  |          |     |
 
 
 
+
 ## 5. GitHub Acknowledgement
+
+- [Official YOLOv8](https://github.com/ultralytics/ultralytics)
+- [Torch Pruning](https://github.com/VainF/Torch-Pruning)
+- [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling)
+- [Colour Shift](https://github.com/mayasarena/colour-shift)
 
 
 
 
 ## 6. References
 
-### Papers With Code
-
 - [SPIGA: Shape Preserving Facial Landmarks with Graph Attention Networks](https://arxiv.org/pdf/2210.07233.pdf) ([GitHub](https://github.com/andresprados/spiga)) (2022)
 - [Deep High-Resolution Representation Learning for Visual Recognition](https://arxiv.org/pdf/1908.07919.pdf) ([GitHub](https://github.com/HRNet/HRNet-Facial-Landmark-Detection)) (2019)
 - [Deep Adaptive Attention for Joint Facial Action Unit Detection and Face Alignment](https://openaccess.thecvf.com/content_ECCV_2018/papers/Zhiwen_Shao_Deep_Adaptive_Attention_ECCV_2018_paper.pdf) ([GitHub](https://github.com/ZhiwenShao/JAANet)) (2018)
 - [Facial Landmark Detection on 300W](https://paperswithcode.com/sota/facial-landmark-detection-on-300w)
-
-### GitHub Repository
-
-- [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling)
 - [Face-alignment-mobilenet-v2](https://github.com/WallZFE/Face-alignment-mobilenet-v2)
 - [26M Flops Facial Landmark Detection](https://github.com/ainrichman/Peppa-Facial-Landmark-PyTorch)
 - [yolov8-face-landmarks-opencv-dnn](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
 - [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
 - [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
 - [FacialLandmarkDetection](https://github.com/nicknochnack/FacialLandmarkDetection)
-- [Colour Shift](https://github.com/mayasarena/colour-shift)
+
 
 
 
