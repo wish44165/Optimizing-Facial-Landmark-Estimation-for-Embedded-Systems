@@ -1,4 +1,4 @@
-# Low-power Efficient and Accurate Facial-Landmark Detection for Embedded Systems
+## Optimizing Facial-Landmark Estimation in Embedded Systems through Iterative Autolabeling and Model Pruning
 
 2024 IEEE International Conference on Multimedia and Expo
 
