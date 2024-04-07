@@ -1,4 +1,4 @@
-## Optimizing Facial-Landmark Estimation in Embedded Systems through Iterative Autolabeling and Model Pruning
+## Optimizing Facial-Landmark Estimation for Embedded Systems through Iterative Autolabeling and Model Pruning
 
 2024 IEEE International Conference on Multimedia and Expo
 
