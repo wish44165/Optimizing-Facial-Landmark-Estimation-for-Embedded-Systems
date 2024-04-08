@@ -2,8 +2,8 @@
 
 2024 IEEE International Conference on Multimedia and Expo
 
-- [[2024 IEEE International Conference on Multimedia and Expo](https://2024.ieeeicme.org/)] 
-- [[IEEE ICME 2024 Grand Challenges](https://pairlabs.ai/ieee-icme-2024-grand-challenges/)] [[Qualification](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)] [[Final](https://aidea-web.tw/topic/2e3e61b7-fbd0-417f-aba3-15124ba1b5cd?focus=intro)]
+- [[2024 IEEE International Conference on Multimedia and Expo](https://2024.ieeeicme.org/)] [[IEEE ICME 2024 Grand Challenges](https://pairlabs.ai/ieee-icme-2024-grand-challenges/)]
+- [[Qualification](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)] [[Final](https://aidea-web.tw/topic/2e3e61b7-fbd0-417f-aba3-15124ba1b5cd?focus=intro)] [[ICME 2024 GC PAIR Competition Final Rankings](https://pairlabs.ai/icme-2024-gc-pair-competition-final-rankings/)]
 
 The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operating systems.
 
