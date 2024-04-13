@@ -3,6 +3,8 @@
 The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operating systems.
 
 
+<details><summary>Folder Structure</summary>
+
 ```bash
 final/
 ├── preprocess/
@@ -20,6 +22,8 @@ final/
 ├── convert2tflite.py
 └── techreport.pdf
 ```
+
+</details>
 
 
 <details><summary>1. Create Conda Environments</summary>
@@ -102,6 +106,8 @@ $ python yolov8_pruning.py
 </details>
 
 
+<details><summary>Reference</summary>
+
 - [Export Formats](https://docs.ultralytics.com/modes/export/#export-formats)
 - [Usage](https://docs.ultralytics.com/integrations/tflite/#usage)
 - [Model optimization](https://www.tensorflow.org/lite/performance/model_optimization)
@@ -135,3 +141,5 @@ $ python yolov8_pruning.py
                                             model_content=None,
                                             gpu_compatibility=False)
       ```
+
+</details>
