@@ -13,11 +13,13 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 
 
-## Progress
+<details>
 
-- [ ] April 17 2024 - Grand Challenge  Paper Acceptance Notification (remember citation)
-- [ ] May 7, 2024 - Camera-Ready Grand Challenge Paper submission
-- [x] April 10, 2024 - Grand Challenge Paper Submission
+<summary>Progress</summary>
+
+- [ ] 07/05/2024 - Camera-Ready Grand Challenge Paper submission
+- [ ] 17/04/2024 - Grand Challenge  Paper Acceptance Notification
+- [x] 10/04/2024 - Grand Challenge Paper Submission
 - [x] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml, submission_v15.zip (v10_64_pruning/runs/facial/step_12_finetune/weights/)
 - [x] 02/04/2024 - submission_v14.zip (c_step6/)
 - [x] 01/04/2024 - Continue pruning, submission_v13.zip (v9_96_pruning/step_15_finetune/ -> v9_96_pruning_c/step_1_finetune/ -> c_step1/)
@@ -41,6 +43,8 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 - [x] 16/02/2024 - YOLOv8-pose Setup (ultralytics/)
 - [x] 15/02/2024 - Auto label with whole image (pts2yolo.py)
 - [x] 14/02/2024 - Split dataset (splitdata.py)
+  
+</details>
 
 
 
@@ -183,6 +187,18 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 ## 3. Demonstration
 
+### 3.1. Synergizing Data Annotations
+
+<img src="https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/assets/103_synergized.png" alt="synergized" width="70%">
+
+### 3.2. Iterative Autolabeling Enhancement
+
+<img src="https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/assets/103_refined.png" alt="refined" width="70%" >
+
+### 3.3. Channel Shift Augmentation
+
+<img src="https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/assets/103_shifted.png" alt="shifted" width="70%" >
+
 
 
 
@@ -201,9 +217,9 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 - [best.pt]() [best.tflite]()
 
-| Leaderboards     | Filename               | Upload              | Evaluation result | Ranking |
-| ---------------- | ---------------------- | ------------------- | ----------------- | ------- |
-|  | submission.zip         |  |          |     |
+| User  | Score | Accuracy (%) | Model Complexity (GFLOPs) | Model Size (MB) | Speed (ms) | Power (W) |
+| ----- | ----- | ------------ | ------------------------- | --------------- | ---------- | --------- |
+| yuhs1 | 7.78  | 19.30        | 0.08                      | 2.25            | 8.12       | 1.64      |
 
 
 
