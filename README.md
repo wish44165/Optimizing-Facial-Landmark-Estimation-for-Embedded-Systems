@@ -1,9 +1,12 @@
 ## Optimizing Facial-Landmark Estimation for Embedded Systems through Iterative Autolabeling and Model Pruning
 
+
 2024 IEEE International Conference on Multimedia and Expo
+
 
 - [[2024 IEEE International Conference on Multimedia and Expo](https://2024.ieeeicme.org/)] [[IEEE ICME 2024 Grand Challenges](https://pairlabs.ai/ieee-icme-2024-grand-challenges/)]
 - [[Qualification](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)] [[Final](https://aidea-web.tw/topic/2e3e61b7-fbd0-417f-aba3-15124ba1b5cd?focus=intro)] [[ICME 2024 GC PAIR Competition Final Rankings](https://pairlabs.ai/icme-2024-gc-pair-competition-final-rankings/)]
+
 
 The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operating systems.
 
@@ -57,7 +60,8 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 <details><summary>Create Conda Environment</summary>
 
-```
+```bash
+# Qualification competition
 $ conda create -n yolov8 python=3.10 -y
 $ conda activate yolov8
 $ git clone https://github.com/ultralytics/ultralytics.git
@@ -65,6 +69,16 @@ $ cd ultralytics/
 $ pip install ultralytics
 $ pip install pyarrow
 $ pip install scikit-learn
+
+# Final competition
+$ conda env remove -n yuhs1
+$ conda create -n yuhs1 python=3.10 -y
+$ conda activate yuhs1
+$ pip install ultralytics
+$ pip install nvidia-pyindex
+$ pip install onnx-graphsurgeon
+# https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/final/requirements.txt
+$ pip install -r requirements.txt
 ```
 
 </details>
@@ -100,7 +114,7 @@ $ unzip ivslab_facial_test_private_qualification.zip
 - Create the following folder structure on the local machine
 
     ```bash
-    # Qualification Competition
+    # Qualification competition
     qualification/
     ├── iAutolabeling/
     ├── preprocess/
@@ -125,7 +139,7 @@ $ unzip ivslab_facial_test_private_qualification.zip
         ├── predict.py
         └── submit.py
 
-    # Final Competition
+    # Final competition
     final/
     ├── C3TR/
     ├── demo/
@@ -151,41 +165,16 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 <details><summary>Qualification Competition</summary>
 
-```bash
-# iAutolabeling_conf_0.2
-$ for i in `seq 0 3`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
-$ for i in `seq 4 19`; do python main.py --curr_iter ${i} --bs 32 | tee iterLog${i}.txt; done
-
-# iAutolabeling_conf_0.3
-$ for i in `seq 0 4`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
-$ for i in `seq 5 19`; do python main.py --curr_iter ${i} --bs 32 | tee iterLog${i}.txt; done
-
-# iAutolabeling_conf_0.5
-$ for i in `seq 0 9`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
-$ for i in `seq 10 19`; do python main.py --curr_iter ${i} | tee iterLog${i}.txt; done
-
-# After iAutolabeling (v4, Adjust single_cls, pose, degrees, shear, mosaic, mixup, copy_paste, erasing while training)
-$ python train.py
-# output: ultralytics/runs/facial/train/weights/best.pt
-
-# v4_x8
-$ python train.py --model_name ./runs/facial/train/weights/best.pt --yaml_path facial_v4_x8.yaml --n_worker $(nproc) --save_path ./runs/facial
-# output: ultralytics/runs/facial/train2/weights/best.pt
-
-# submit
-$ python predict.py
-$ python submit.py
-
-$ fitTest_aug.py
-
-```
+- [preprocess](https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/tree/main/qualification/preprocess)
+- [iAutolabeling](https://github.com/wish44165/iAutolabeling)
+- [ultralytics](https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/tree/main/qualification/ultralytics)
 
 </details>
 
 
 <details><summary>Final Competition</summary>
 
-
+- [pruning](https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/tree/main/final)
 
 </details>
 
@@ -225,22 +214,6 @@ $ fitTest_aug.py
 - [Torch Pruning](https://github.com/VainF/Torch-Pruning)
 - [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling)
 - [Colour Shift](https://github.com/mayasarena/colour-shift)
-
-
-
-
-## 6. References
-
-- [SPIGA: Shape Preserving Facial Landmarks with Graph Attention Networks](https://arxiv.org/pdf/2210.07233.pdf) ([GitHub](https://github.com/andresprados/spiga)) (2022)
-- [Deep High-Resolution Representation Learning for Visual Recognition](https://arxiv.org/pdf/1908.07919.pdf) ([GitHub](https://github.com/HRNet/HRNet-Facial-Landmark-Detection)) (2019)
-- [Deep Adaptive Attention for Joint Facial Action Unit Detection and Face Alignment](https://openaccess.thecvf.com/content_ECCV_2018/papers/Zhiwen_Shao_Deep_Adaptive_Attention_ECCV_2018_paper.pdf) ([GitHub](https://github.com/ZhiwenShao/JAANet)) (2018)
-- [Facial Landmark Detection on 300W](https://paperswithcode.com/sota/facial-landmark-detection-on-300w)
-- [Face-alignment-mobilenet-v2](https://github.com/WallZFE/Face-alignment-mobilenet-v2)
-- [26M Flops Facial Landmark Detection](https://github.com/ainrichman/Peppa-Facial-Landmark-PyTorch)
-- [yolov8-face-landmarks-opencv-dnn](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
-- [OpenSeeFace](https://github.com/emilianavt/OpenSeeFace)
-- [FacialLandmark_Caffe](https://github.com/BobLiu20/FacialLandmark_Caffe)
-- [FacialLandmarkDetection](https://github.com/nicknochnack/FacialLandmarkDetection)
 
 
 
