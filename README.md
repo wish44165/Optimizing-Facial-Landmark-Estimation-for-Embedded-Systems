@@ -1,9 +1,6 @@
 ## Optimizing Facial-Landmark Estimation for Embedded Systems through Iterative Autolabeling and Model Pruning
 
 
-2024 IEEE International Conference on Multimedia and Expo
-
-
 - [[2024 IEEE International Conference on Multimedia and Expo](https://2024.ieeeicme.org/)] [[IEEE ICME 2024 Grand Challenges](https://pairlabs.ai/ieee-icme-2024-grand-challenges/)]
 - [[Qualification](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)] [[Final](https://aidea-web.tw/topic/2e3e61b7-fbd0-417f-aba3-15124ba1b5cd?focus=intro)] [[ICME 2024 GC PAIR Competition Final Rankings](https://pairlabs.ai/icme-2024-gc-pair-competition-final-rankings/)]
 
@@ -217,9 +214,9 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 - [best.pt]() [best.tflite]()
 
-| User  | Score | Accuracy (%) | Model Complexity (GFLOPs) | Model Size (MB) | Speed (ms) | Power (W) |
-| ----- | ----- | ------------ | ------------------------- | --------------- | ---------- | --------- |
-| yuhs1 | 7.78  | 19.30        | 0.08                      | 2.25            | 8.12       | 1.64      |
+| User  | Score | Accuracy (%) | Complexity (GFLOPs) | Size (MB) | Speed (ms) | Power (W) | Ranking |
+| ----- | ----- | ------------ | ------------------- | --------- | ---------- | --------- | ------- |
+| yuhs1 | 7.78  | 19.30        | 0.08                | 2.25      | 8.12       | 1.64      | 2/11    |
 
 
 
