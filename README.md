@@ -203,7 +203,7 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 ### 4.1. Qualification Competition
 
-- [best.pt]()
+- [best.pt](https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/qualification/ultralytics/best.pt)
 
 | Leaderboards     | Filename               | Upload time         | Evaluation result | Ranking |
 | ---------------- | ---------------------- | ------------------- | ----------------- | ------- |
@@ -212,7 +212,7 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 ### 4.2. Final Competition
 
-- [best.pt]() [best.tflite]()
+- [best.pt](https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/final/best.pt) [best.tflite](https://github.com/wish44165/Optimizing-Facial-Landmark-Estimation-for-Embedded-Systems/blob/main/final/best.tflite)
 
 | User  | Score | Accuracy (%) | Complexity (GFLOPs) | Size (MB) | Speed (ms) | Power (W) | Ranking |
 | ----- | ----- | ------------ | ------------------- | --------- | ---------- | --------- | ------- |
