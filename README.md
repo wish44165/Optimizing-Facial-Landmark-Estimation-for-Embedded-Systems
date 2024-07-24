@@ -14,8 +14,9 @@ The code has been successfully tested on both Ubuntu 22.04 and Windows 10 operat
 
 <summary>Progress</summary>
 
-- [ ] 07/05/2024 - Camera-Ready Grand Challenge Paper submission
-- [ ] 17/04/2024 - Grand Challenge  Paper Acceptance Notification
+- [x] 15/07/2024 - ICME2024 Presentation
+- [x] 07/05/2024 - Camera-Ready Grand Challenge Paper submission
+- [x] 17/04/2024 - Grand Challenge  Paper Acceptance Notification
 - [x] 10/04/2024 - Grand Challenge Paper Submission
 - [x] 03/04/2024 - Imgsz=64, Conf, IOU, args.yaml, submission_v15.zip (v10_64_pruning/runs/facial/step_12_finetune/weights/)
 - [x] 02/04/2024 - submission_v14.zip (c_step6/)
