@@ -234,5 +234,12 @@ $ unzip ivslab_facial_test_private_qualification.zip
 
 ## Citation
 ```
-
+@inproceedings{chen2024optimizing,
+  title={Optimizing Facial Landmark Estimation for Embedded Systems Through Iterative Autolabeling and Model Pruning},
+  author={Chen, Yu-Hsi and Tai, I-Hsuan},
+  booktitle={2024 IEEE International Conference on Multimedia and Expo Workshops (ICMEW)},
+  pages={1--6},
+  year={2024},
+  organization={IEEE}
+}
 ```
