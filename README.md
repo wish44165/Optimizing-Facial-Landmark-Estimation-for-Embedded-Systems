@@ -1,6 +1,14 @@
 ## Optimizing Facial-Landmark Estimation for Embedded Systems through Iterative Autolabeling and Model Pruning
 
 
+<a href="https://ieeexplore.ieee.org/abstract/document/10645463" style="display: inline-block; vertical-align: middle;">
+  <img src="https://a11ybadges.com/badge?logo=ieee" alt="IEEE" style="height: 20px;">
+</a>
+<a href="https://doi.org/10.5281/zenodo.15597808" style="display: inline-block; vertical-align: middle; margin-left: 8px;">
+  <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15597808.svg" alt="DOI" style="height: 20px;">
+</a>
+
+
 - [[2024 IEEE International Conference on Multimedia and Expo](https://2024.ieeeicme.org/)] [[IEEE ICME 2024 Grand Challenges](https://pairlabs.ai/ieee-icme-2024-grand-challenges/)]
 - [[Qualification](https://aidea-web.tw/topic/b048c9a3-c3bc-4650-9674-f14f4c850f12)] [[Final](https://aidea-web.tw/topic/2e3e61b7-fbd0-417f-aba3-15124ba1b5cd?focus=intro)] [[ICME 2024 GC PAIR Competition Final Rankings](https://pairlabs.ai/icme-2024-gc-pair-competition-final-rankings/)]
 
@@ -92,6 +100,8 @@ $ pip install -r requirements.txt
 
 
 <details><summary>Datasets Download Links</summary>
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15597808.svg)](https://doi.org/10.5281/zenodo.15597808)
 
 ### Stage 1 dataset
 
